@@ -1,0 +1,465 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-color: #324f81;
+  --secondary-color: #ffffff;
+  --accent-color: #b35099;
+  --header-bg: rgba(243, 245, 246, 0.8);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(251, 248, 248, 0.2);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  padding-top: 90px; /* Extra space for fixed header */
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Navigation Styles with Dynamic Adjustment */
+/* Nav Bar Base Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Gradient background for a modern look */
+  background: linear-gradient(90deg, #faf9fa, #f8f7f7);
+    backdrop-filter: blur(10px);
+    padding: 1rem 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+  }
+  
+  /* Flex container for nav items */
+  .nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Site Title Styling */
+  .site-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  /* Navigation Menu */
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* Nav Menu Links */
+  .nav-menu li a {
+    position: relative;
+    color: #080808;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-menu li a:hover {
+    color: #b35099;
+  }
+  
+  .nav-menu li a:hover::after {
+    width: 100%;
+  }
+  
+  /* Hamburger Menu Button (Hidden on larger screens) */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Responsive Nav Bar for Mobile Devices */
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .menu-toggle {
+      display: block;
+      align-self: flex-end;
+    }
+    
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background: rgba(243,245,246,0.9);
+      margin-top: 0.5rem;
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu.active {
+      display: flex;
+    }
+    
+    .nav-menu li {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+    
+    .nav-menu li a {
+      font-size: 1.1rem;
+    }
+  }
+  
+
+/* Slider Section */
+#slider {
+    overflow: hidden;
+  }
+  
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Reduced height for a squeezed look */
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    background: rgba(253, 253, 253, 0.6);
+    padding: 0.5rem 1rem; /* Reduced padding */
+    border-radius: 8px;
+    color: #0a0909; /* Adjust text color here if needed */
+    max-width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .caption h2 {
+    font-size: 1.5rem; /* Reduced header size */
+    margin-bottom: 0.3rem;
+    color: #0a0909;
+  }
+  
+  .caption p {
+    font-size: 0.9rem; /* Reduced paragraph size */
+    color: var(--accent-color);
+  }
+  
+  /* Slider Controls */
+  .slider-controls {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  .slider-controls span {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    user-select: none;
+    text-shadow: 0 2px 4px var(--shadow-dark);
+    transition: transform 0.3s ease;
+  }
+  
+  .slider-controls span:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Timeline (Work Experience) */
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px; /* Adjust to center line relative to markers */
+    width: 2px;
+    background: var(--accent-color);
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 70px; /* Space for marker and gap */
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    left: 30px; /* Center marker on line */
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .timeline-content {
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+
+/* Section Styling */
+.section {
+  padding: 3rem 0;
+  background: #fff;
+  border-bottom: 1px solid var(--shadow-light);
+}
+
+.section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 60px;
+  background: var(--accent-color);
+  margin: 0.5rem auto 0;
+  border-radius: 3px;
+}
+
+.section p,
+.section li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Card Styles for Content Items */
+.job, .education-item, .project {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: var(--secondary-color);
+  box-shadow: 0 2px 6px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job:hover, .education-item:hover, .project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px var(--shadow-dark);
+}
+
+/* Footer */
+footer {
+  background: var(--header-bg);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 1rem 20px;
+  box-shadow: 0 -2px 6px var(--shadow-light);
+}
+
+/* Scroll To Top Button */
+#scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  display: none;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px var(--shadow-dark);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTop:hover {
+  background: #2d81b7;
+  transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Show hamburger menu button */
+  .menu-toggle {
+    display: block;
+  }
+  /* Hide desktop navigation initially */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--header-bg);
+    margin-top: 10px;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 6px var(--shadow-light);
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .nav-menu li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  nav ul li a {
+    font-size: 1.1rem;
+  }
+  .slider-container {
+    height: 300px;
+  }
+  .caption h2 {
+    font-size: 1.5rem;
+  }
+  .caption p {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* Skills Section Updated Styles */
+/* Responsive grid for skill items */
+#skills .skill-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.9rem; /* Reduced gap between items */
+}
+
+/* Individual Skill Item with reduced padding */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem; /* Reduced gap between icon and details */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.3rem; /* Reduced padding */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+}
+
+#skills .skill-category h3 {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin: 0.3rem 0;  /* Increased top & bottom gap */
+  text-align: center;
+}
+
+
+/* Icon styling */
+.skill-item img {
+  max-width: 40px;
+  flex-shrink: 0;
+}
+
+/* Skill details styling */
+.skill-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skill-details span {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem; /* Reduced margin */
+}
+
+/* Progress Bar Styles */
+.progress {
+  background: #eee;
+  border-radius: 4px;
+  height: 6px;
+  width: 80%; /* Reduced bar length */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.progress-filled {
+  background: var(--accent-color);
+  height: 100%;
+  width: 0; /* Inline style will override this value */
+  border-radius: 4px;
+  transition: width 0.6s ease-in-out;
+}
+
+
