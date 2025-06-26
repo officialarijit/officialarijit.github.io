@@ -6,7 +6,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin-top: 0;
+  margin-top: 60px !important; /* Force margin to prevent navbar overlap */
 }
 
 .blog-header::before {
@@ -57,7 +57,7 @@
   color: var(--text-light);
   border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
@@ -101,7 +101,7 @@
 /* New Blog Post Card Styles */
 .blog-post-card {
   background: var(--bg-light-blue);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
@@ -165,7 +165,7 @@
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-light);
   padding: 0.35rem 0.75rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius-lg);
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -230,31 +230,32 @@
 }
 
 .tag {
-  background: var(--primary-color);
-  color: var(--text-light);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   padding: 0.2rem 0.5rem;
-  border-radius: 8px;
-  font-size: 0.55rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+  border-radius: var(--border-radius-lg);
+  font-size: 0.6rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .read-more-btn {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-light);
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
   font-weight: 600;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  transition: all 0.3s ease;
+  font-size: 0.75rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .read-more-btn:hover {
@@ -290,9 +291,9 @@
 
 .sidebar-widget {
   background: var(--bg-light-blue);
-  padding: 1.25rem;
-  border-radius: var(--border-radius-md);
-  margin-bottom: 1.25rem;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-color);
   position: relative;
@@ -345,7 +346,7 @@
   color: var(--text-secondary);
   text-decoration: none;
   padding: 0.4rem 0.6rem;
-  border-radius: 6px;
+  border-radius: var(--border-radius-lg);
   transition: all 0.3s ease;
   font-weight: 500;
   font-size: 0.8rem;
@@ -361,7 +362,7 @@
   background: var(--primary-color);
   color: var(--text-light);
   padding: 0.15rem 0.4rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   font-size: 0.6rem;
   font-weight: 600;
 }
@@ -406,27 +407,23 @@
 }
 
 .refresh-btn {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-light);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 1rem;
-  width: 100%;
-  transition: var(--transition);
-  display: flex;
+  font-size: 0.75rem;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .refresh-btn:hover {
-  background: var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -454,11 +451,13 @@
 }
 
 .subscribe-form input {
-  padding: 1rem;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
 }
 
 .subscribe-form input:focus {
@@ -470,10 +469,11 @@
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-light);
   border: none;
-  padding: 1rem;
-  border-radius: 10px;
-  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-lg);
   cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
 }
 
@@ -505,18 +505,17 @@
 }
 
 .modal-content {
-  background: var(--bg-light-blue);
-  margin: 2rem;
-  padding: 0;
-  border-radius: 20px;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-xl);
+  max-width: 800px;
   width: 90%;
-  max-width: 900px;
   max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Keep hidden for the container */
   position: relative;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column; /* Stack header and body vertically */
 }
 
 .blog-modal.active .modal-content {
@@ -527,8 +526,9 @@
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--text-light);
   padding: 2rem;
-  border-radius: 20px 20px 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
   position: relative;
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .modal-header h2 {
@@ -540,21 +540,22 @@
 
 .modal-close {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.2);
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   border: none;
-  color: var(--text-light);
-  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%; /* Keep as 50% for circular button */
   cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  z-index: 10;
+  border: 1px solid var(--border-color);
 }
 
 .modal-close:hover {
@@ -565,6 +566,9 @@
 .modal-body {
   padding: 2rem;
   color: var(--text-primary);
+  overflow-y: auto; /* Enable vertical scrolling */
+  flex: 1; /* Take up remaining space */
+  max-height: calc(90vh - 120px); /* Account for header height */
 }
 
 .modal-post-meta {
@@ -656,7 +660,7 @@
   border-left: 4px solid var(--primary-color);
   padding: 1.5rem;
   margin: 2rem 0;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
   font-style: italic;
   position: relative;
 }
@@ -675,7 +679,7 @@
 .modal-body .post-content code {
   background: rgba(0, 0, 0, 0.1);
   padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  border-radius: var(--border-radius-lg);
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   color: var(--primary-color);
@@ -685,7 +689,7 @@
   background: #2d3748;
   color: #e2e8f0;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: var(--border-radius-lg);
   overflow-x: auto;
   margin: 2rem 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -701,7 +705,7 @@
 .modal-body .post-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: var(--border-radius-lg);
   margin: 2rem 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -711,7 +715,7 @@
   border-collapse: collapse;
   margin: 2rem 0;
   background: white;
-  border-radius: 10px;
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -745,7 +749,7 @@
   margin: 2rem 0;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.02);
-  border-radius: 8px;
+  border-radius: var(--border-radius-lg);
   overflow-x: auto;
 }
 
@@ -793,19 +797,24 @@
 
 @media (max-width: 768px) {
   .blog-header {
-    padding: 2.5rem 0;
+    padding: 3rem 0 2rem 0;
+    margin-top: 90px;
+  }
+  
+  .blog-header:first-of-type {
+    margin-top: 90px !important;
   }
   
   .blog-header-content h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
   
   .blog-header-content p {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
   }
   
   .blog-filters {
-    gap: 0.3rem;
+    gap: 0.4rem;
   }
   
   .filter-btn {
@@ -814,7 +823,7 @@
   }
   
   .post-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .post-content {
@@ -822,8 +831,8 @@
   }
   
   .modal-content {
-    margin: 0.5rem;
     width: 95%;
+    max-height: 90vh;
   }
   
   .modal-header,
@@ -832,25 +841,34 @@
   }
   
   .modal-header h2 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   
   .modal-body .post-content {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   
   .modal-body .post-content h1 {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
   
   .modal-body .post-content h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
+  .blog-header {
+    margin-top: 80px;
+    padding: 2rem 0 1.5rem 0;
+  }
+  
+  .blog-header:first-of-type {
+    margin-top: 80px !important;
+  }
+  
   .blog-header-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   
   .post-image {
@@ -858,7 +876,7 @@
   }
   
   .post-content {
-    padding: 0.6rem;
+    padding: 0.7rem;
   }
   
   .sidebar-widget {
@@ -867,12 +885,16 @@
   
   .modal-header,
   .modal-body {
-    padding: 0.5rem;
+    padding: 0.8rem;
   }
   
   .modal-post-meta {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .modal-body {
+    max-height: calc(90vh - 60px); /* Smaller header on mobile */
   }
 }
 
@@ -979,4 +1001,34 @@ body.dark-mode .modal-body .post-content tr:nth-child(even) {
 
 body.dark-mode .modal-body .post-content tr:hover {
   background: var(--bg-secondary);
+}
+
+/* Ensure body has proper spacing for fixed navbar */
+body {
+  padding-top: 0;
+}
+
+/* Additional spacing for blog page specifically */
+.blog-header:first-of-type {
+  margin-top: 100px !important;
+}
+
+/* Additional safety measures for navbar spacing */
+.blog-header:first-of-type {
+  margin-top: 100px !important; /* Force margin with !important */
+}
+
+/* Ensure the first section after navbar has proper spacing */
+body > section:first-of-type {
+  margin-top: 100px;
+}
+
+/* Specific targeting for blog page */
+body:has(.blog-header) .blog-header {
+  margin-top: 80px !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+.blog-header {
+  margin-top: 100px !important;
 }

@@ -150,46 +150,24 @@
   <script src="assets/js/blog.js"></script>
   <script src="assets/js/lightbox.js"></script>
   <script>
-    // Initialize navbar
+    // Initialize blog system after navbar is loaded
     document.addEventListener('DOMContentLoaded', () => {
-      const navbarManager = new NavbarManager();
-      navbarManager.loadNavbar();
+      // Blog system will be initialized by blog.js
+      console.log('Blog page loaded, navbar and blog system will initialize automatically');
       
-      // Fallback dropdown initialization for blog page
+      // Ensure blog header has proper spacing from navbar
       setTimeout(() => {
-        const dropdowns = document.querySelectorAll('.dropdown');
-        if (dropdowns.length > 0) {
-          dropdowns.forEach(dropdown => {
-            const toggle = dropdown.querySelector('.dropdown-toggle');
-            if (toggle) {
-              toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Close other dropdowns
-                dropdowns.forEach(other => {
-                  if (other !== dropdown) {
-                    other.classList.remove('active');
-                  }
-                });
-                
-                // Toggle current dropdown
-                dropdown.classList.toggle('active');
-                console.log('Dropdown toggled from fallback');
-              });
-            }
-          });
-          
-          // Close dropdowns when clicking outside
-          document.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown')) {
-              dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-              });
-            }
-          });
+        const blogHeader = document.querySelector('.blog-header');
+        if (blogHeader) {
+          const navbar = document.querySelector('nav');
+          if (navbar) {
+            const navbarHeight = navbar.offsetHeight;
+            const requiredMargin = navbarHeight + 20; // Add 20px extra spacing
+            blogHeader.style.marginTop = `${requiredMargin}px`;
+            console.log(`Applied margin-top: ${requiredMargin}px to blog header`);
+          }
         }
-      }, 200);
+      }, 500); // Wait for navbar to be fully loaded
     });
   </script>
 </body>

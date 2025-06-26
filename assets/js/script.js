@@ -8,26 +8,17 @@ document.addEventListener("DOMContentLoaded", function() {
   fetchGoogleScholarPublications();
   fetchGoogleScholarMetrics();
   
-  // Initialize dark mode immediately and also after navbar loads
-  initDarkMode();
-  
-  // Also initialize dark mode after a delay to catch any late-loading elements
+  // Dark mode will be initialized by navbar.js to ensure proper order
+  // Only initialize if navbar hasn't already done it
   setTimeout(() => {
-    if (typeof initDarkMode === 'function') {
+    if (typeof initDarkMode === 'function' && !document.body.classList.contains('dark-mode-initialized')) {
       initDarkMode();
     }
-  }, 500);
+  }, 1000);
 });
 
-// Also initialize dark mode immediately if DOM is already loaded
-if (document.readyState === 'loading') {
-  // DOM is still loading, wait for DOMContentLoaded
-} else {
-  // DOM is already loaded, initialize immediately
-  if (typeof initDarkMode === 'function') {
-    initDarkMode();
-  }
-}
+// Remove the immediate dark mode initialization to prevent conflicts
+// Dark mode will be handled by navbar.js
 
 // Scroll effects and animations
 function initScrollEffects() {
@@ -826,6 +817,12 @@ function setDarkMode(enabled) {
 function initDarkMode() {
   console.log('Initializing dark mode...');
   
+  // Check if already initialized
+  if (document.body.classList.contains('dark-mode-initialized')) {
+    console.log('Dark mode already initialized, skipping...');
+    return;
+  }
+  
   try {
     // Get saved preference or system preference
     const saved = localStorage.getItem('darkMode');
@@ -880,6 +877,9 @@ function initDarkMode() {
         setDarkMode(e.matches);
       }
     });
+    
+    // Mark as initialized
+    document.body.classList.add('dark-mode-initialized');
     
     console.log('Dark mode initialization completed');
   } catch (error) {
