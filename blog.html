@@ -154,6 +154,42 @@
     document.addEventListener('DOMContentLoaded', () => {
       const navbarManager = new NavbarManager();
       navbarManager.loadNavbar();
+      
+      // Fallback dropdown initialization for blog page
+      setTimeout(() => {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        if (dropdowns.length > 0) {
+          dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            if (toggle) {
+              toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other dropdowns
+                dropdowns.forEach(other => {
+                  if (other !== dropdown) {
+                    other.classList.remove('active');
+                  }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('active');
+                console.log('Dropdown toggled from fallback');
+              });
+            }
+          });
+          
+          // Close dropdowns when clicking outside
+          document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown')) {
+              dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+              });
+            }
+          });
+        }
+      }, 200);
     });
   </script>
 </body>
