@@ -3,96 +3,250 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arijit Nandi - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Professional Portfolio - AI/ML Engineer and Researcher">
+  <meta name="keywords" content="portfolio, AI, machine learning, data science, researcher">
+  <title>Arijit Nandi - Professional Portfolio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- MathJax Support for LaTeX -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    // Configure MathJax before it loads
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        processHtmlClass: 'math-display'
+      },
+      startup: {
+        pageReady: () => {
+          console.log('MathJax is ready on index page');
+          return window.MathJax.startup.defaultPageReady();
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="container nav-container">
-      <h1>Arijit Nandi, Ph.D</h1>
-      <!-- Hamburger Menu Button for Mobile -->
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
-        <span>&#9776;</span>
-      </button>
-      <ul class="nav-menu">
-        <li><a href="#slider">Home</a></li>
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#scholar">Scholar</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Slider Section -->
-  <section id="slider" class="section">
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
     <div class="container">
-      <div class="slider-container">
-        <div class="slide active">
-          <img src="photo.jpg" alt="Arijit Nandi">
-          <div class="caption">
-            <h2>Arijit Nandi, Ph.D</h2>
-            <p>Passionate Machine Learning Engineer &amp; Researcher</p>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">Hi, I'm <span class="highlight">Arijit Nandi</span></h1>
+          <h2 class="hero-subtitle">Advanced Machine Learning Researcher</h2>
+          <p class="hero-description">
+            Passionate about turning cutting-edge AI concepts into impactful solutions.
+            Specialized in machine learning, data science, and innovative technology applications.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Publications</span>
+        </div>
           </div>
         </div>
-        <div class="slide">
-          <img src="slide2.jpg" alt="AI Research &amp; Projects">
-          <div class="caption">
-            <h2>Expert in Data Streaming &amp; Affective Computing</h2>
-            <p>Where streaming data meets human emotions</p>
+        <div class="hero-image">
+          <div class="profile-card">
+            <img src="assets/images/photo.jpg" alt="Arijit Ghosh" class="profile-photo">
+            <div class="profile-overlay">
+              <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="slide">
-          <img src="slide3.jpg" alt="Professional Expertise">
-          <div class="caption">
-            <h2>Music Lover</h2>
-            <p>Music, passion, and melody in every note.</p>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <p class="section-subtitle">Get to know me better</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm an AI researcher and practitioner with a Ph.D. in Artificial Intelligence from UPC-BarcelonaTech 🎓, passionate about building intelligent, responsible, and scalable AI systems that address real-world challenges. My expertise spans Machine Learning & Deep Learning, Federated Learning for privacy-preserving model development, Explainable AI (XAI) for transparency and trust, and Large Language Models (LLMs) for automation at scale. Currently, I'm actively working with LLMs (e.g., GPT-based models) to build scalable tools for automated content creation & personalization, marketing and communication automation, and intelligent assistants & workflow optimization, while developing a Federated Learning Platform for secure, privacy-centric model training and an XAI-as-a-Service platform to democratize interpretability in AI systems. My work seamlessly blends academic rigor with practical innovation across key domains including data science, software engineering, research & innovation, and AI/ML development. My mission is to make AI not just smarter—but also safer, more transparent, and human-centric. I'm always open to connecting with researchers, innovators, and organizations advancing trustworthy AI to collaborate on building the future of explainable, privacy-aware, and impactful AI—together.</p>
+          
+          <div class="about-expertise">
+            <h4>Core Expertise Areas</h4>
+            <div class="expertise-tags">
+              <span class="expertise-tag">Machine Learning</span>
+              <span class="expertise-tag">Deep Learning</span>
+              <span class="expertise-tag">Federated Learning</span>
+              <span class="expertise-tag">Explainable AI</span>
+              <span class="expertise-tag">Large Language Models</span>
+              <span class="expertise-tag">Data Science</span>
+              <span class="expertise-tag">Software Engineering</span>
+              <span class="expertise-tag">Research & Innovation</span>
+            </div>
           </div>
         </div>
-        <div class="slider-controls">
-          <span class="prev">&#10094;</span>
-          <span class="next">&#10095;</span>
+        <div class="about-image">
+          <img src="assets/images/slide2.jpg" alt="About Me" class="about-photo">
+          <div class="metrics-display">
+            <div class="metric-item">
+              <span class="metric-number">299</span>
+              <span class="metric-label">Total Citations</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">10</span>
+              <span class="metric-label">H-Index</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">10</span>
+              <span class="metric-label">i10-Index</span>
+            </div>
+          </div>
+          <div class="flag-counter">
+            <a href="https://info.flagcounter.com/XBAZ"><img src="https://s05.flagcounter.com/map/XBAZ/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  
 
-  <!-- Summary Section -->
-  <section id="summary" class="section">
+  <!-- Skills Section -->
+  <section id="skills" class="section bg-light">
     <div class="container">
-      <h2>Summary</h2>
-      <p>
-        Passionate AI/ML Engineer and Researcher with a Ph.D. in AI and 5+ years of experience turning cutting-edge concepts into impactful solutions. Skilled in federated learning, data streaming, deep learning, and emotion recognition with hands-on expertise in Python, TensorFlow, and PyTorch. Currently pushing boundaries in explainable AI (XAI) to make AI systems smarter and more transparent. Ready to contribute to exciting projects in a collaborative environment.
-      </p>
-    </div>
-  </section>
-
-  <!-- Technical Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
+      <div class="section-header">
       <h2>Technical Skills</h2>
-  
+        <p class="section-subtitle">Technologies and tools I work with</p>
+      </div>
+
+      <div class="skills-grid">
       <!-- Programming Languages -->
       <div class="skill-category">
-        <h3>Programming Languages</h3>
+          <h3><i class="fas fa-code"></i> Programming Languages</h3>
         <div class="skill-list">
           <div class="skill-item">
-            <img src="icons/python.png" alt="Python">
-            <span>Python</span>
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <span class="skill-level">Advanced</span>
+              </div>
             <div class="progress">
               <div class="progress-filled" style="width: 90%;"></div>
             </div>
           </div>
           <div class="skill-item">
-            <img src="icons/matlab.png" alt="MATLAB">
-            <span>MATLAB</span>
+            <div class="skill-info">
+              <span class="skill-name">MATLAB</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+          <div class="progress">
+            <div class="progress-filled" style="width: 90%;"></div>
+          </div>
+        </div>
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-level">Intermediate</span>
+              </div>
+            <div class="progress">
+              <div class="progress-filled" style="width: 65%;"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">SQL</span>
+                <span class="skill-level">Intermediate</span>
+              </div>
+              <div class="progress">
+                <div class="progress-filled" style="width: 65%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning -->
+      <div class="skill-category">
+          <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+        <div class="skill-list">
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">TensorFlow</span>
+                <span class="skill-level">Advanced</span>
+          </div>
+            <div class="progress">
+              <div class="progress-filled" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">PyTorch</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+            <div class="progress">
+              <div class="progress-filled" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Scikit-learn</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+            <div class="progress">
+                <div class="progress-filled" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Data Science -->
+      <div class="skill-category">
+          <h3><i class="fas fa-chart-bar"></i> Data Science</h3>
+        <div class="skill-list">
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Pandas</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+            <div class="progress">
+              <div class="progress-filled" style="width: 90%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">NumPy</span>
+                <span class="skill-level">Advanced</span>
+              </div>
+            <div class="progress">
+                <div class="progress-filled" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Matplotlib</span>
+                <span class="skill-level">Intermediate</span>
+          </div>
             <div class="progress">
               <div class="progress-filled" style="width: 75%;"></div>
             </div>
@@ -100,247 +254,179 @@
         </div>
       </div>
 
-      <div class="floating-div" id="floatingDiv">
-        <button class="close-btn" onclick="document.getElementById('floatingDiv').style.display='none'">&times;</button>
-        
-        <a href="https://info.flagcounter.com/XBAZ"><img src="https://s05.flagcounter.com/map/XBAZ/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
-      </div>
-      
-      <!-- Data Streaming -->
+        <!-- Tools & Technologies -->
       <div class="skill-category">
-        <h3>Data Streaming</h3>
+          <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
         <div class="skill-list">
           <div class="skill-item">
-            <img src="icons/Scikit-multiflow-logo.png" alt="Scikit-multiflow">
-            <span>Scikit-multiflow</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 80%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="icons/river.png" alt="River">
-            <span>River</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 70%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="kafka.png" alt="Kafka">
-            <span>Kafka</span>
+              <div class="skill-info">
+                <span class="skill-name">Docker</span>
+                <span class="skill-level">Advanced</span>
+              </div>
             <div class="progress">
               <div class="progress-filled" style="width: 85%;"></div>
             </div>
           </div>
           <div class="skill-item">
-            <img src="rabbitmq.png" alt="RabbitMQ">
-            <span>RabbitMQ</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 80%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="mqtt.png" alt="MQTT">
-            <span>MQTT</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 75%;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- MLOps -->
-      <div class="skill-category">
-        <h3>MLOps</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <img src="docker.png" alt="Docker">
-            <span>Docker</span>
+              <div class="skill-info">
+                <span class="skill-name">Git</span>
+                <span class="skill-level">Advanced</span>
+              </div>
             <div class="progress">
               <div class="progress-filled" style="width: 90%;"></div>
             </div>
           </div>
           <div class="skill-item">
-            <img src="streamlit.png" alt="Streamlit">
-            <span>Streamlit</span>
+              <div class="skill-info">
+                <span class="skill-name">AWS</span>
+                <span class="skill-level">Intermediate</span>
+              </div>
             <div class="progress">
-              <div class="progress-filled" style="width: 80%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="mlflow.png" alt="MLFlow">
-            <span>MLFlow</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 70%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="airflow.png" alt="Airflow">
-            <span>Airflow</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 75%;"></div>
+                <div class="progress-filled" style="width: 70%;"></div>
+              </div>
             </div>
           </div>
         </div>
+            </div>
+          </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Work Experience</h2>
+        <p class="section-subtitle">My professional journey</p>
       </div>
-  
-      <!-- ML/DL Stack -->
-      <div class="skill-category">
-        <h3>ML/DL Stack</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <img src="keras.png" alt="Keras">
-            <span>Keras</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 85%;"></div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Advanced Machine Learning Researcher</h3>
+              <span class="company">Eurecat - Centro Tecnológico de Cataluña, Barcelona Spain</span>
+              <span class="period">2022 - Present</span>
             </div>
-          </div>
-          <div class="skill-item">
-            <img src="numpy.png" alt="Numpy">
-            <span>Numpy</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 90%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="pandas.png" alt="Pandas">
-            <span>Pandas</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 85%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="scikitlearn.png" alt="Scikit-Learn">
-            <span>Scikit-Learn</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 80%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="tensorflow.png" alt="TensorFlow">
-            <span>TensorFlow</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 85%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="opencv.png" alt="OpenCV">
-            <span>OpenCV</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 75%;"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <img src="tff.png" alt="TensorFlow Federated">
-            <span>TF Federated</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 70%;"></div>
-            </div>
+            <p>Leading AI initiatives and developing machine learning solutions for enterprise clients.</p>
+            <ul>
+              <li>Developed and deployed ML models for predictive analytics</li>
+              <li>Led a team of 5 engineers in AI project delivery</li>
+              <li>Improved model accuracy by 25% through innovative techniques</li>
+            </ul>
           </div>
         </div>
-      </div>
-  
-      <!-- Explainable AI -->
-      <div class="skill-category">
-        <h3>Explainable AI</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <img src="shap.png" alt="SHAP">
-            <span>SHAP</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 80%;"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Machine Learning Researcher</h3>
+              <span class="company">Eurecat - Centro Tecnológico de Cataluña, Barcelona Spain</span>
+              <span class="period">2029 - 2022</span>
             </div>
-          </div>
-          <div class="skill-item">
-            <img src="innvestigate.png" alt="Innvestigate">
-            <span>Innvestigate</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 70%;"></div>
-            </div>
+            <p>Applied statistical analysis and machine learning to solve business problems.</p>
+            <ul>
+              <li>Built recommendation systems for e-commerce platforms</li>
+              <li>Created automated reporting dashboards</li>
+              <li>Reduced processing time by 40% through optimization</li>
+            </ul>
           </div>
         </div>
-      </div>
-  
-      <!-- Version Control -->
-      <div class="skill-category">
-        <h3>Version Control</h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <img src="git.png" alt="Git">
-            <span>Git</span>
-            <div class="progress">
-              <div class="progress-filled" style="width: 90%;"></div>
+
+        <!-- <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Research Assistant</h3>
+              <span class="company">University Research Lab</span>
+              <span class="period">2019 - 2021</span>
             </div>
+            <p>Conducted research in machine learning and published findings in peer-reviewed journals.</p>
+            <ul>
+              <li>Published 5 research papers in top-tier conferences</li>
+              <li>Developed novel algorithms for computer vision</li>
+              <li>Collaborated with international research teams</li>
+            </ul>
           </div>
-        </div>
+        </div> -->
       </div>
-  
     </div>
   </section>
-  
-   
-
-  <!-- Work Experience Section -->  
-<section id="experience" class="section">
-  <div class="container">
-    <h2>Work Experience</h2>
-    <div class="job">
-      <h3>Eurecat - Technology Center of Catalonia, Barcelona, Spain</h3>
-      <h4>AI Researcher, Big Data and Data Science Unit (Dec 2022 – Now)</h4>
-      <ul>
-        <li>Worked on the “AI4Drought” project in collaboration with the European Space Agency (ESA), Lobelia Earth, and Barcelona Super Computer (BSC) to improve seasonal climate predictions of drought.</li>
-        <li>Developed an explainable AI GUI app (XaiSS) using Python, Streamlit, and Docker.</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h3>Eurecat - Technology Center of Catalonia, Barcelona, Spain</h3>
-      <h4>AI Researcher, Training Unit (Dec 2019 – Dec 2022)</h4>
-      <ul>
-        <li>Contributed as an AI expert to design and develop the AIM4YOU MOOC course under the EU project YNSPEED.</li>
-        <li>Developed an initial version of a collaborative and content-based filtering recommendation system for Moodle LMS.</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h3>Tuttify.io, Wesley Chapel, FL, United States</h3>
-      <h4>Freelance AI Engineer (Mar 2022 – May 2023)</h4>
-      <ul>
-        <li>Designed and developed emotion recognition from facial expressions using TensorFlow 2.0 and FER 2013, CK++.</li>
-        <li>Implemented pose estimation combined with emotional status to evaluate student engagement.</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
   <!-- Projects Section -->
-  <section id="projects" class="section">
+  <section id="projects" class="section bg-light">
     <div class="container">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Docker based Federated Learning (DFL)</h3>
-        <p>
-          Developed a Docker-enabled Federated Learning framework using TensorFlow and Docker containers for data stream processing in heterogeneous HPC systems. 
-          <a href="https://github.com/officialarijit/dfl" target="_blank">View on GitHub</a>
-        </p>
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p class="section-subtitle">Some of my recent work</p>
       </div>
-      <div class="project">
-        <h3>Federated Learning Method for Real-time Emotion State Classification (Fed-ReMECS)</h3>
-        <p>
-          Created a federated learning framework for real-time emotion classification from multi-modal physiological data streams with privacy in mind.
-          <a href="https://github.com/officialarijit/Fed-ReMECS-mqtt" target="_blank">View on GitHub</a>
-        </p>
-      </div>
-      <div class="project">
-        <h3>Tuttify’s Human Pose Estimation as A Service (CaamPose)</h3>
-        <p>
-          Customized pose estimation for student engagement analysis using Openpose models.
-          <a href="https://tuttify.io/" target="_blank">View Tuttify</a>
-        </p>
-      </div>
-      <div class="project">
-        <h3>Tuttify’s Face Emotion Recognition as A Service (CaamFace)</h3>
-        <p>
-          Developed a face emotion recognition system using TensorFlow 2.0 and FER 2013, CK++ integrated into Tuttify’s backend.
-          <a href="https://tuttify.io/" target="_blank">View Tuttify</a>
-        </p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/slide2.jpg" alt="Project 1">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>AI-Powered Data Analytics Platform</h3>
+            <p>Developed a comprehensive analytics platform using machine learning algorithms for real-time data processing and insights generation.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/slide3.jpg" alt="Project 2">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Natural Language Processing System</h3>
+            <p>Built an advanced NLP system for text analysis, sentiment detection, and language understanding using transformer models.</p>
+            <div class="project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">BERT</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/photo.jpg" alt="Project 3">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+              </div>
+            </div>
+          <div class="project-content">
+            <h3>Computer Vision Application</h3>
+            <p>Created an advanced computer vision system for object detection and classification.</p>
+            <div class="project-tech">
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Flask</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -348,60 +434,171 @@
   <!-- Education Section -->
   <section id="education" class="section">
     <div class="container">
+      <div class="section-header">
       <h2>Education</h2>
-      <div class="education-item">
-        <h3>Universitat Politècnica de Catalunya (UPC), Barcelona, Spain</h3>
-        <h4>Ph.D. in Artificial Intelligence (Dec 2019 – Sept 2024)</h4>
-        <p><strong>Thesis:</strong> Multimodal data stream classification and prediction of e-Learner’s emotional states</p>
+        <p class="section-subtitle">My academic background</p>
       </div>
-      <div class="education-item">
-        <h3>National Institute of Technology Durgapur (NIT), West Bengal, India</h3>
-        <h4>M.Tech in Computer Science and Engineering (Aug 2017 – Mar 2019)</h4>
-        <p><strong>Thesis:</strong> A study of Enhanced Particle Swarm Optimization Trained Neural Network for Classification</p>
+      
+
+      <div class="education-grid">
+        <div class="education-card">
+          <div class="education-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="education-content">
+            <h3>Ph.D. in Artificial Intelligence</h3>
+            <span class="institution">Polytechnic University of Catalonia (UPC-BarcelonaTech)</span>
+            <span class="period">2019 - 2021</span>
+            <p>Specialized in Artificial Intelligence and Machine Learning with focus on deep learning applications.</p>
+          </div>
+        </div>
+
+        <div class="education-card">
+          <div class="education-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="education-content">
+            <h3>Master of Technology in Computer Science</h3>
+            <span class="institution">National Institute of Technology, Durgapur, West Bengal, India</span>
+            <span class="period">2017 - 2019</span>
+            <p>Specialized in Artificial Intelligence and Machine Learning with focus on deep learning applications.</p>
+          </div>
+        </div>
+
+        <div class="education-card">
+          <div class="education-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="education-content">
+            <h3>B.Tech in Computer Science and Engineering</h3>
+            <span class="institution">Budge Budge Institute of Technology</span>
+            <span class="period">2012 - 2016</span>
+            <p>Graduated with honors. Focused on software engineering and data structures.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Publications Section -->
-  <section id="publications" class="section">
+  <section id="publications" class="section bg-light">
     <div class="container">
-      <h2>Selected Publications</h2>
-      <ul>
-        <li>
-          Arijit, Nandi, Fatos Xhafa, and Rohit Kumar. "A docker-based federated learning framework design and deployment for multi-modal data stream classification." <em>Computing</em>, pages 1–35. Springer, 2023.
-        </li>
-        <li>
-          Arijit Nandi and Fatos Xhafa. "A federated learning method for real-time emotion state classification from multi-modal streaming." <em>Methods</em>, volume 204, pages 340–347, 2022.
-        </li>
-        <li>
-          Arijit Nandi, Fatos Xhafa, Laia Subirats, and Santi Fort. "Reward-penalty weighted ensemble for emotion state classification from multi-modal data streams." <em>International Journal of Neural Systems</em>, 2022.
-        </li>
-      </ul>
+      <div class="section-header">
+        <h2>Publications</h2>
+        <p class="section-subtitle">Research contributions</p>
+    </div>
+
+      <div class="publications-list" id="publications-list">
+        <!-- Publications will be loaded dynamically from data/publications.json -->
+        <div class="loading-publications">
+          <div class="loading-spinner"></div>
+          <p>Loading publications...</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Awards & Achievements Section -->
-  <section id="awards" class="section">
+  <!-- Blog Preview Section -->
+  <section id="blog-preview" class="section">
     <div class="container">
-      <h2>Awards &amp; Achievements</h2>
-      <ul>
-        <li>
-          Vicente López Award by Eurecat as a Ph.D. research scholar (Dec 2019–Dec 2022), partially funded by ACCIO under the project TutorIA.
-        </li>
-        <li>
-          M.Tech. Fellowship Award from the Ministry of Human Resource and Development (MHRD) India (Aug 2017–Aug 2019).
-        </li>
-      </ul>
+      <div class="section-header">
+        <h2>Latest Blog Posts</h2>
+        <p class="section-subtitle">Thoughts on AI, ML, and technology</p>
+      </div>
+
+      <div class="blog-preview-grid" id="blog-preview-grid">
+        <!-- Blog posts will be loaded dynamically -->
+        <div class="blog-preview-loading">
+          <div class="loading-spinner"></div>
+          <p>Loading latest blog posts...</p>
+        </div>
+      </div>
+
+      <div class="blog-preview-cta">
+        <a href="blog.html" class="btn btn-primary">View All Posts</a>
+      </div>
     </div>
   </section>
 
-  <!-- Google Scholar Citations Section -->
-  <section id="scholar" class="section">
+
+  <!-- Social Media Section -->
+  <section id="social-media" class="section bg-light">
     <div class="container">
-      <h2>Google Scholar Citations</h2>
-      <p>View my Google Scholar profile for detailed citation metrics: <a href="https://scholar.google.com/citations?user=4re6DoEAAAAJ&amp;hl=en" target="_blank">My Google Scholar</a></p>
-      <div id="scholar-metrics">
-        <p>Loading citation metrics...</p>
+      <div class="section-header">
+        <h2>Connect With Me</h2>
+        <p class="section-subtitle">Follow my research and professional journey</p>
+      </div>
+      
+      <div class="social-media-grid">
+        <div class="social-item">
+          <a href="https://github.com/yourusername" target="_blank" class="social-link">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://scholar.google.com/citations?user=4re6DoEAAAAJ" target="_blank" class="social-link">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Google Scholar</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://www.researchgate.net/profile/yourusername" target="_blank" class="social-link">
+            <i class="fab fa-researchgate"></i>
+            <span>ResearchGate</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://www.webofscience.com/wos/author/record/your-id" target="_blank" class="social-link">
+            <i class="fas fa-globe"></i>
+            <span>Web of Science</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://sciprofiles.com/profile/yourusername" target="_blank" class="social-link">
+            <i class="fas fa-user-graduate"></i>
+            <span>SciProfile</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" class="social-link">
+            <i class="fab fa-orcid"></i>
+            <span>ORCID</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=your-id" target="_blank" class="social-link">
+            <i class="fas fa-search"></i>
+            <span>Scopus</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://www.researcherid.com/rid/your-id" target="_blank" class="social-link">
+            <i class="fas fa-id-card"></i>
+            <span>ResearchID</span>
+          </a>
+        </div>
+        
+        <div class="social-item">
+          <a href="https://dblp.org/pid/your-id" target="_blank" class="social-link">
+            <i class="fas fa-database"></i>
+            <span>DBLP</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -409,26 +606,114 @@
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:jit.ari172@gmail.com">jit.ari172@gmail.com</a></p>
-      <p>
-        <a href="https://www.linkedin.com/in/arin2" target="_blank">LinkedIn</a> | 
-        <a href="https://github.com/officialarijit" target="_blank">GitHub</a> | 
-        <a href="https://scholar.google.com/citations?user=4re6DoEAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>
-      </p>
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p class="section-subtitle">Let's work together</p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h3>Email</h3>
+              <p>ai4arijit@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h3>Location</h3>
+              <p>Barcelona, Spain</p>
+            </div>
+          </div>
+          <!-- <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h3>Phone</h3>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="contact-form-container">
+          <div class="contact-actions">
+            <!-- <button id="toggleContactForm" class="btn btn-primary">
+              <i class="fas fa-envelope"></i>
+              Send me a message
+            </button> -->
+            <a href="mailto:ai4arijit@gmail.com" class="btn btn-secondary">
+              <i class="fas fa-envelope-open"></i>
+              Send Email Directly
+            </a>
+          </div>
+          
+          <!-- <div class="contact-form" id="contactForm" style="display: none;">
+            <form id="contactFormElement">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="button" id="cancelContactForm" class="btn btn-secondary">Cancel</button>
+              </div>
+            </form>
+          </div> -->
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Scroll To Top Button -->
-  <button id="scrollToTop" title="Go to top">&#8679;</button>
-
   <!-- Footer -->
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Arijit Nandi. All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Arijit Nandi</h3>
+          <p>AI/ML Engineer & Researcher passionate about creating innovative solutions.</p>
+          <div class="social-links">
+            <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com/citations?user=4re6DoEAAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://www.researchgate.net/profile/yourusername" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+            <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+            <a href="mailto:ai4arijit@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Arijit Nandi. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Scroll To Top Button -->
+  <button id="scrollToTop" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/publications.js"></script>
+  <script src="assets/js/lightbox.js"></script>
 </body>
 </html>

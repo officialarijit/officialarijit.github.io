@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blog - AI/ML Engineer and Researcher">
+  <meta name="keywords" content="blog, AI, machine learning, data science, research">
+  <title>Blog - Arijit Ghosh</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="assets/css/blog-styles.css">
+  <link rel="stylesheet" href="assets/css/lightbox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Markdown and LaTeX Support -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    // Configure MathJax before it loads
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        processHtmlClass: 'math-display'
+      },
+      startup: {
+        pageReady: () => {
+          console.log('MathJax is ready');
+          return window.MathJax.startup.defaultPageReady();
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <!-- Blog Header -->
+  <section class="blog-header">
+    <div class="container">
+      <div class="blog-header-content">
+        <h1>Blog</h1>
+        <p>Thoughts on AI, Machine Learning, and Technology</p>
+        <div class="blog-filters">
+          <button class="filter-btn active" data-category="all">All Posts</button>
+          <button class="filter-btn" data-category="machine-learning">Machine Learning</button>
+          <button class="filter-btn" data-category="deep-learning">Deep Learning</button>
+          <button class="filter-btn" data-category="data-science">Data Science</button>
+          <button class="filter-btn" data-category="tutorials">Tutorials</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="blog-content">
+    <div class="container">
+      <div class="blog-layout">
+        <!-- Blog Posts List -->
+        <div class="blog-posts" id="blog-posts">
+          <!-- Posts will be loaded dynamically -->
+        </div>
+
+        <!-- Blog Sidebar -->
+        <div class="blog-sidebar">
+          <div class="sidebar-widget">
+            <h3>Categories</h3>
+            <ul class="category-list">
+              <!-- Categories will be loaded dynamically -->
+            </ul>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Recent Posts</h3>
+            <ul class="recent-posts">
+              <!-- Recent posts will be loaded dynamically -->
+            </ul>
+            <button class="refresh-btn" onclick="blogSystem.refreshBlogData()" title="Refresh blog posts">
+              <i class="fas fa-sync-alt"></i> Refresh Posts
+            </button>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Subscribe</h3>
+            <p>Get notified when I publish new posts</p>
+            <form class="subscribe-form">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Post Modal -->
+  <div id="blog-modal" class="blog-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title"></h2>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Blog post content will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Arijit Ghosh</h3>
+          <p>AI/ML Engineer & Researcher passionate about creating innovative solutions.</p>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Arijit Ghosh. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button id="scrollToTop" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script>
+    // Initialize navbar
+    document.addEventListener('DOMContentLoaded', () => {
+      const navbarManager = new NavbarManager();
+      navbarManager.loadNavbar();
+    });
+  </script>
+</body>
+</html>

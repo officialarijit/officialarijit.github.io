@@ -1,0 +1,55 @@
+name: Process Blog Posts
+
+on:
+  push:
+    paths:
+      - 'blogs/**/*.md'
+      - 'scripts/process_blogs.py'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  process-blogs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install markdown beautifulsoup4
+          
+      - name: Process blog posts
+        run: |
+          python scripts/process_blogs.py
+          
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet data/blog_posts.json; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/blog_posts.json
+          git commit -m "Auto-update blog posts from Markdown files"
+          git push
+          
+      - name: No changes detected
+        if: steps.check_changes.outputs.changes == 'false'
+        run: |
+          echo "No changes detected in blog posts" 
