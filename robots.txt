@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Allow all pages and assets
+Allow: /index.html
+Allow: /blog.html
+Allow: /404.html
+Allow: /assets/
+Allow: /data/
+Allow: /docs/
+Allow: /blogs/
+
+# Disallow private or unnecessary files
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /scripts/
+Disallow: /components/
+Disallow: /requirements.txt
+Disallow: /deploy.sh
+Disallow: /CNAME
+
+# Sitemap location
+Sitemap: https://officialarijit.github.io/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+Crawl-delay: 1 
