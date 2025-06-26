@@ -56,6 +56,11 @@ class NavbarManager {
                     }
                 }, 100);
 
+                // Retry dropdown initialization with a delay to ensure DOM is ready
+                setTimeout(() => {
+                    this.initializeDropdown();
+                }, 50);
+
                 console.log('Navbar loaded successfully');
             } else {
                 console.error('Nav element not found in navbar.html');
@@ -212,20 +217,11 @@ class NavbarManager {
             const toggle = dropdown.querySelector('.dropdown-toggle');
 
             if (toggle) {
-                toggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    // Close other dropdowns
-                    dropdowns.forEach(other => {
-                        if (other !== dropdown) {
-                            other.classList.remove('active');
-                        }
-                    });
-
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('active');
-                });
+                // Remove any existing event listeners to prevent duplicates
+                toggle.removeEventListener('click', this.handleDropdownToggle);
+                
+                // Add new event listener
+                toggle.addEventListener('click', this.handleDropdownToggle.bind(this));
             }
         });
 
@@ -249,6 +245,28 @@ class NavbarManager {
 
         // Handle dropdown item clicks (both desktop and mobile)
         this.initializeDropdownItemClicks();
+        
+        console.log(`Initialized ${dropdowns.length} dropdowns`);
+    }
+
+    handleDropdownToggle(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const dropdown = e.target.closest('.dropdown');
+        const allDropdowns = document.querySelectorAll('.dropdown');
+
+        // Close other dropdowns
+        allDropdowns.forEach(other => {
+            if (other !== dropdown) {
+                other.classList.remove('active');
+            }
+        });
+
+        // Toggle current dropdown
+        dropdown.classList.toggle('active');
+        
+        console.log(`Dropdown toggled: ${dropdown.classList.contains('active') ? 'opened' : 'closed'}`);
     }
 
     initializeDropdownItemClicks() {
