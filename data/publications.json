@@ -1,0 +1,223 @@
+{
+  "profile": {
+    "scholar_id": "4re6DoEAAAAJ",
+    "scholar_url": "https://scholar.google.com/citations?hl=en&user=4re6DoEAAAAJ&view_op=list_works&sortby=pubdate",
+    "last_updated": "2025-06-25"
+  },
+  "publications": [
+    {
+      "year": "2025",
+      "title": "Misinformation Detection Through Multimodal Machine Learning Analysis of Eye-Tracking and Physiological Responses: A Proof-of-Concept Study",
+      "authors": "ED Filippi, A Nandi, AP Baños",
+      "journal": "International Conference on Pattern Recognition, 18-33, 2025",
+      "citations": 0,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:Wp0gIr-vW9MC",
+        "code": null
+      }
+    },
+    {
+      "year": "2024",
+      "title": "Seeing through lies: Correlation between physiological and sentiment metrics in the consumption and dissemination of fake news",
+      "authors": "E De Filippi, A Nandi, J Vicens, E Alvarez-Garcıa, D Garcıa-Costa, ...",
+      "journal": "OSF, 2024",
+      "citations": 0,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:qxL8FJ1GzNcC",
+        "code": null
+      }
+    },
+    {
+      "year": "2024",
+      "title": "Summer Drought Prediction in Europe combining Climate Simulations and Remote Sensing",
+      "authors": "D Civantos Prieto, J Peña-Izquierdo, L Palma, M Donat, G Vilella, M Tufis, ...",
+      "journal": "EGU General Assembly Conference Abstracts, 18231, 2024",
+      "citations": 0,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:M3ejUd6NZC8C",
+        "code": null
+      }
+    },
+    {
+      "year": "2024",
+      "title": "A global empirical system for probabilistic seasonal climate prediction based on generative AI and CMIP6 models",
+      "authors": "L Palma, A Peraza, A Duarte, D Civantos, S Materia, A Nandi, ...",
+      "journal": "EGU General Assembly 2024, 2024",
+      "citations": 6,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:_kc_bZDykSQC",
+        "code": null
+      }
+    },
+    {
+      "year": "2023",
+      "title": "A Docker-based federated learning framework design and deployment for multi-modal data stream classification",
+      "authors": "A Nandi, F Xhafa, R Kumar",
+      "journal": "Computing 105 (10), 2195-2229, 2023",
+      "citations": 13,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:3fE2CSJIrl8C",
+        "code": null
+      }
+    },
+    {
+      "year": "2023",
+      "title": "An Ensemble Framework for Glaucoma Classification Using Fundus Images",
+      "authors": "A Patra, A Nandi, MZ Lazarus, S Lenka",
+      "journal": "Soft Computing: Theories and Applications: Proceedings of SoCTA 2022, 573-588, 2023",
+      "citations": 4,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:8k81kl-MbHgC",
+        "code": null
+      }
+    },
+    {
+      "year": "2023",
+      "title": "A dynamic weighted federated learning for android malware classification",
+      "authors": "A Chaudhuri, A Nandi, B Pradhan",
+      "journal": "Soft computing: Theories and applications: Proceedings of SoCTA 2022, 147-159, 2023",
+      "citations": 17,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:_FxGoFyzp5QC",
+        "code": null
+      }
+    },
+    {
+      "year": "2023",
+      "title": "Measuring arousal and stress physiology on Esports, a League of Legends case study",
+      "authors": "D Berga, A Pereda, E De Filippi, A Nandi, E Febrer, M Reverte, L Russo",
+      "journal": "arXiv preprint arXiv:2302.14269, 2023",
+      "citations": 2,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:kNdYIx-mwKoC",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "Reward-penalty weighted ensemble for emotion state classification from multi-modal data streams",
+      "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
+      "journal": "International journal of neural systems 32 (12), 2250049, 2022",
+      "citations": 10,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:YsMSGLbcyi4C",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "A federated learning method for real-time emotion state classification from multi-modal streaming",
+      "authors": "A Nandi, F Xhafa",
+      "journal": "Methods 204, 340-347, 2022",
+      "citations": 71,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:Y0pCki6q_DkC",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "MDEAW: A Multimodal Dataset for Emotion Analysis through EDA and PPG signals from wireless wearable low-cost off-the-shelf Devices",
+      "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
+      "journal": "arXiv preprint arXiv:2207.06410, 2022",
+      "citations": 0,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:W7OEmFMy1HYC",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "Federated learning with exponentially weighted moving average for real-time emotion classification",
+      "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
+      "journal": "International Symposium on Ambient Intelligence, 123-133, 2022",
+      "citations": 2,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:roLk4NBRz8UC",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "Soft Computing: Theories and Applications: Proceedings of SoCTA 2021",
+      "authors": "R Kumar, CW Ahn, TK Sharma, OP Verma, A Agarwal",
+      "journal": "Springer Nature, 2022",
+      "citations": 11,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:YOwf2qJgpHMC",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "Emotional Impact of Source Localization in Music Using Machine Learning and EEG: a proof-of-concept study",
+      "authors": "E De Filippi, T Schmele, A Nandi, AG Torres, A Pereda-Banos",
+      "journal": "Authorea Preprints, 2022",
+      "citations": 1,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:LkGwnXOMwfcC",
+        "code": null
+      }
+    },
+    {
+      "year": "2021",
+      "title": "Real-time multimodal emotion classification system in e-learning context",
+      "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
+      "journal": "International Conference on Engineering Applications of Neural Networks, 423-435, 2021",
+      "citations": 13,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:zYLM7Y9cAGgC",
+        "code": null
+      }
+    },
+    {
+      "year": "2021",
+      "title": "Real-time emotion classification using eeg data stream in e-learning contexts",
+      "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
+      "journal": "Sensors 21 (5), 1589, 2021",
+      "citations": 73,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:qjMakFHDy7sC",
+        "code": null
+      }
+    },
+    {
+      "year": "2020",
+      "title": "A survey on multimodal data stream mining for e-learner’s emotion recognition",
+      "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
+      "journal": "2020 International conference on omni-layer intelligent systems (COINS), 1-6, 2020",
+      "citations": 20,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:2osOgNQ5qMEC",
+        "code": null
+      }
+    },
+    {
+      "year": "2020",
+      "title": "Improving the performance of neural networks with an ensemble of activation functions",
+      "authors": "A Nandi, ND Jana, S Das",
+      "journal": "2020 international joint conference on neural networks (IJCNN), 1-7, 2020",
+      "citations": 17,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:u5HHmVD_uO8C",
+        "code": null
+      }
+    },
+    {
+      "year": "2019",
+      "title": "A novel hybrid neural network-based multirobot path planning with motion coordination",
+      "authors": "B Pradhan, A Nandi, NB Hui, DS Roy, JJPC Rodrigues",
+      "journal": "IEEE Transactions on Vehicular Technology 69 (2), 1319-1327, 2019",
+      "citations": 37,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:d1gkVwhDpl0C",
+        "code": null
+      }
+    }
+  ],
+  "metrics": {
+    "total_citations": 299,
+    "h_index": 295,
+    "i10_index": 10
+  }
+}

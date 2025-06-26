@@ -1,0 +1,9 @@
+# Custom domain for GitHub Pages
+# Replace with your custom domain if you have one
+# Example: yourname.com or www.yourname.com
+# Leave this file empty or remove it if you don't have a custom domain
+
+# To use a custom domain:
+# 1. Replace this content with your domain (e.g., "yourname.com")
+# 2. Add a CNAME record in your DNS provider pointing to yourusername.github.io
+# 3. Wait for DNS propagation (can take up to 24 hours)
