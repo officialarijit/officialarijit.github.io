@@ -3,6 +3,8 @@ class NavbarManager {
     constructor() {
         this.navbarContainer = null;
         this.currentPage = this.getCurrentPage();
+        this.isInitialized = false;
+        console.log('NavbarManager created for page:', this.currentPage);
     }
 
     getCurrentPage() {
@@ -14,6 +16,14 @@ class NavbarManager {
     }
 
     async loadNavbar() {
+        // Prevent multiple initializations
+        if (this.isInitialized) {
+            console.log('Navbar already initialized, skipping...');
+            return;
+        }
+
+        console.log('Starting navbar loading process...');
+
         try {
             const response = await fetch('components/navbar.html');
 
@@ -22,6 +32,7 @@ class NavbarManager {
             }
 
             const navbarHtml = await response.text();
+            console.log('Navbar HTML loaded successfully');
 
             // Create a temporary container to parse the HTML
             const tempDiv = document.createElement('div');
@@ -31,8 +42,16 @@ class NavbarManager {
             const navElement = tempDiv.querySelector('nav');
 
             if (navElement) {
+                // Check if navbar already exists
+                const existingNav = document.querySelector('nav');
+                if (existingNav) {
+                    console.log('Navbar already exists, removing old one...');
+                    existingNav.remove();
+                }
+
                 // Insert the navbar at the beginning of the body
                 document.body.insertBefore(navElement, document.body.firstChild);
+                console.log('Navbar inserted into DOM');
 
                 // Update active states based on current page
                 this.updateActiveStates();
@@ -54,13 +73,14 @@ class NavbarManager {
                     } else {
                         console.warn('initDarkMode function not found');
                     }
-                }, 100);
+                }, 200);
 
                 // Retry dropdown initialization with a delay to ensure DOM is ready
                 setTimeout(() => {
                     this.initializeDropdown();
-                }, 50);
+                }, 100);
 
+                this.isInitialized = true;
                 console.log('Navbar loaded successfully');
             } else {
                 console.error('Nav element not found in navbar.html');
@@ -74,6 +94,14 @@ class NavbarManager {
 
     createFallbackNavbar() {
         console.log('Creating fallback navbar');
+        
+        // Check if navbar already exists
+        const existingNav = document.querySelector('nav');
+        if (existingNav) {
+            console.log('Navbar already exists, skipping fallback...');
+            return;
+        }
+
         const fallbackNav = document.createElement('nav');
         fallbackNav.innerHTML = `
             <div class="container nav-container">
@@ -127,7 +155,9 @@ class NavbarManager {
             } else {
                 console.warn('initDarkMode function not found in fallback');
             }
-        }, 100);
+        }, 200);
+
+        this.isInitialized = true;
     }
 
     updateActiveStates() {
@@ -168,12 +198,16 @@ class NavbarManager {
         const navMenu = document.querySelector('.nav-menu');
 
         if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', (e) => {
+            // Remove existing event listeners to prevent duplicates
+            const newMenuToggle = menuToggle.cloneNode(true);
+            menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+            
+            newMenuToggle.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
                 navMenu.classList.toggle('active');
-                menuToggle.classList.toggle('active');
+                newMenuToggle.classList.toggle('active');
 
                 // Close any open dropdowns when toggling mobile menu
                 const dropdowns = document.querySelectorAll('.dropdown');
@@ -187,15 +221,15 @@ class NavbarManager {
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
+                    newMenuToggle.classList.remove('active');
                 });
             });
 
             // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                if (!newMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
                     navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
+                    newMenuToggle.classList.remove('active');
 
                     // Also close any open dropdowns
                     const dropdowns = document.querySelectorAll('.dropdown');
@@ -218,10 +252,11 @@ class NavbarManager {
 
             if (toggle) {
                 // Remove any existing event listeners to prevent duplicates
-                toggle.removeEventListener('click', this.handleDropdownToggle);
+                const newToggle = toggle.cloneNode(true);
+                toggle.parentNode.replaceChild(newToggle, toggle);
                 
                 // Add new event listener
-                toggle.addEventListener('click', this.handleDropdownToggle.bind(this));
+                newToggle.addEventListener('click', this.handleDropdownToggle.bind(this));
             }
         });
 
@@ -276,7 +311,11 @@ class NavbarManager {
             const dropdownLinks = dropdown.querySelectorAll('.dropdown-menu a');
 
             dropdownLinks.forEach(link => {
-                link.addEventListener('click', () => {
+                // Remove existing event listeners to prevent duplicates
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+                
+                newLink.addEventListener('click', () => {
                     // Close the dropdown
                     dropdown.classList.remove('active');
 
@@ -298,8 +337,12 @@ class NavbarManager {
         const nav = document.querySelector('nav');
 
         navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
+            // Remove existing event listeners to prevent duplicates
+            const newLink = link.cloneNode(true);
+            link.parentNode.replaceChild(newLink, link);
+            
+            newLink.addEventListener('click', (e) => {
+                const href = newLink.getAttribute('href');
 
                 // Handle blog link
                 if (href === 'blog.html') {
@@ -428,11 +471,22 @@ class NavbarManager {
 
 // Initialize navbar when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded event fired, initializing navbar...');
     const navbarManager = new NavbarManager();
     navbarManager.loadNavbar();
 
     // Handle hash changes for single page navigation
     window.addEventListener('hashchange', () => {
+        console.log('Hash changed, updating navbar...');
         navbarManager.handleHashChange();
     });
 });
+
+// Also initialize if DOM is already loaded
+if (document.readyState === 'loading') {
+    console.log('DOM still loading, waiting for DOMContentLoaded...');
+} else {
+    console.log('DOM already loaded, initializing navbar immediately...');
+    const navbarManager = new NavbarManager();
+    navbarManager.loadNavbar();
+}
