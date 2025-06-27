@@ -780,6 +780,11 @@ function updateMetricsSection(metrics) {
       </div>
     `;
   }
+
+  // Animate stats appearance
+  setTimeout(() => {
+    stats.classList.add('show');
+  }, 100);
 }
 
 function setDarkMode(enabled) {
