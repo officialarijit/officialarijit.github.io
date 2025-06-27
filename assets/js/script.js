@@ -889,7 +889,7 @@ function initDarkMode() {
 
 // Copy email to clipboard function
 function copyEmailToClipboard() {
-    const email = 'ai4arijit@gmail.com';
+    const email = 'arijit4ai@gmail.com';
     
     // Try to use the modern clipboard API
     if (navigator.clipboard && window.isSecureContext) {
