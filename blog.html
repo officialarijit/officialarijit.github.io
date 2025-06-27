@@ -3,9 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Blog - AI/ML Engineer and Researcher">
-  <meta name="keywords" content="blog, AI, machine learning, data science, research">
-  <title>Blog - Arijit Nandi</title>
+  
+  <!-- Preload critical resources for better performance -->
+  <link rel="preload" href="assets/css/styles.css" as="style">
+  <link rel="preload" href="assets/css/blog-styles.css" as="style">
+  <link rel="preload" href="assets/js/blog.js" as="script">
+  
+  <!-- Enhanced Meta Tags -->
+  <meta name="description" content="Arijit Nandi's Blog - Expert insights on AI, Machine Learning, Federated Learning, Explainable AI, and Large Language Models. Research articles, tutorials, and industry perspectives from an AI/ML researcher.">
+  <meta name="keywords" content="AI blog, machine learning blog, federated learning, explainable AI, XAI, large language models, LLM, deep learning tutorials, AI research, data science blog, Barcelona AI researcher">
+  <meta name="author" content="Arijit Nandi">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="geo.region" content="ES">
+  <meta name="geo.placename" content="Barcelona">
+  <link rel="canonical" href="https://officialarijit.github.io/blog.html">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Arijit Nandi's Blog - AI & Machine Learning Insights">
+  <meta property="og:description" content="Expert insights on AI, Machine Learning, Federated Learning, Explainable AI, and Large Language Models. Research articles and tutorials from an AI/ML researcher.">
+  <meta property="og:image" content="https://officialarijit.github.io/assets/images/photo.jpg">
+  <meta property="og:url" content="https://officialarijit.github.io/blog.html">
+  <meta property="og:type" content="blog">
+  <meta property="og:site_name" content="Arijit Nandi Portfolio">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arijit Nandi's Blog - AI & Machine Learning Insights">
+  <meta name="twitter:description" content="Expert insights on AI, Machine Learning, Federated Learning, Explainable AI, and Large Language Models.">
+  <meta name="twitter:image" content="https://officialarijit.github.io/assets/images/photo.jpg">
+  <meta name="twitter:creator" content="@arijit4ai">
+  
+  <title>Arijit Nandi's Blog - AI & Machine Learning Insights | Expert Research & Tutorials</title>
+  
+  <!-- Structured Data (JSON-LD) for Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Arijit Nandi's Blog",
+    "description": "Expert insights on AI, Machine Learning, Federated Learning, Explainable AI, and Large Language Models",
+    "url": "https://officialarijit.github.io/blog.html",
+    "author": {
+      "@type": "Person",
+      "name": "Arijit Nandi",
+      "jobTitle": "AI/ML Engineer & Researcher",
+      "url": "https://officialarijit.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arijit Nandi Portfolio",
+      "url": "https://officialarijit.github.io"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://officialarijit.github.io/blog.html"
+    },
+    "about": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Deep Learning",
+      "Federated Learning",
+      "Explainable AI",
+      "Large Language Models"
+    ]
+  }
+  </script>
+  
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/navbar.css">
   <link rel="stylesheet" href="assets/css/blog-styles.css">
@@ -38,6 +103,16 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+  <!-- Breadcrumb Navigation for SEO -->
+  <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+      </ol>
+    </div>
+  </nav>
+
   <!-- Blog Header -->
   <section class="blog-header">
     <div class="container">
@@ -126,11 +201,25 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#about">About Me</a></li>
+            <li><a href="index.html#skills">Technical Skills</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#projects">Featured Projects</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="index.html#publications">Research Publications</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Blog Categories</h3>
+          <ul>
+            <li><a href="blog.html?category=machine-learning">Machine Learning</a></li>
+            <li><a href="blog.html?category=deep-learning">Deep Learning</a></li>
+            <li><a href="blog.html?category=federated-learning">Federated Learning</a></li>
+            <li><a href="blog.html?category=explainable-ai">Explainable AI</a></li>
+            <li><a href="blog.html?category=large-language-models">Large Language Models</a></li>
+            <li><a href="blog.html?category=tutorials">Tutorials</a></li>
           </ul>
         </div>
       </div>
