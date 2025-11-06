@@ -2,7 +2,7 @@
   "profile": {
     "scholar_id": "4re6DoEAAAAJ",
     "scholar_url": "https://scholar.google.com/citations?hl=en&user=4re6DoEAAAAJ&view_op=list_works&sortby=pubdate",
-    "last_updated": "2025-06-25"
+    "last_updated": "2025-11-06"
   },
   "publications": [
     {
@@ -13,6 +13,17 @@
       "citations": 0,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:Wp0gIr-vW9MC",
+        "code": null
+      }
+    },
+    {
+      "year": "2025",
+      "title": "Emotional Impact of Source Localization in Music Using Machine Learning",
+      "authors": "T Schmele, E De Filippi, A Nandi",
+      "journal": "Music and Sound Generation in the AI Era: 16th International Symposium, CMMR …, 2025",
+      "citations": 0,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:wMgC3FpKEyYC",
         "code": null
       }
     },
@@ -54,7 +65,7 @@
       "title": "A Docker-based federated learning framework design and deployment for multi-modal data stream classification",
       "authors": "A Nandi, F Xhafa, R Kumar",
       "journal": "Computing 105 (10), 2195-2229, 2023",
-      "citations": 13,
+      "citations": 17,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:3fE2CSJIrl8C",
         "code": null
@@ -65,7 +76,7 @@
       "title": "An Ensemble Framework for Glaucoma Classification Using Fundus Images",
       "authors": "A Patra, A Nandi, MZ Lazarus, S Lenka",
       "journal": "Soft Computing: Theories and Applications: Proceedings of SoCTA 2022, 573-588, 2023",
-      "citations": 4,
+      "citations": 5,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:8k81kl-MbHgC",
         "code": null
@@ -76,7 +87,7 @@
       "title": "A dynamic weighted federated learning for android malware classification",
       "authors": "A Chaudhuri, A Nandi, B Pradhan",
       "journal": "Soft computing: Theories and applications: Proceedings of SoCTA 2022, 147-159, 2023",
-      "citations": 17,
+      "citations": 24,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:_FxGoFyzp5QC",
         "code": null
@@ -87,9 +98,20 @@
       "title": "Measuring arousal and stress physiology on Esports, a League of Legends case study",
       "authors": "D Berga, A Pereda, E De Filippi, A Nandi, E Febrer, M Reverte, L Russo",
       "journal": "arXiv preprint arXiv:2302.14269, 2023",
-      "citations": 2,
+      "citations": 6,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:kNdYIx-mwKoC",
+        "code": null
+      }
+    },
+    {
+      "year": "2023",
+      "title": "Soft Computing: Theories and Applications: Proceedings of SoCTA 2022",
+      "authors": "R Kumar, AK Verma, TK Sharma, OP Verma, S Sharma",
+      "journal": "Springer, 2023",
+      "citations": 7,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:kVjdVfd2voEC",
         "code": null
       }
     },
@@ -98,7 +120,7 @@
       "title": "Reward-penalty weighted ensemble for emotion state classification from multi-modal data streams",
       "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
       "journal": "International journal of neural systems 32 (12), 2250049, 2022",
-      "citations": 10,
+      "citations": 12,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:YsMSGLbcyi4C",
         "code": null
@@ -109,7 +131,7 @@
       "title": "A federated learning method for real-time emotion state classification from multi-modal streaming",
       "authors": "A Nandi, F Xhafa",
       "journal": "Methods 204, 340-347, 2022",
-      "citations": 71,
+      "citations": 80,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:Y0pCki6q_DkC",
         "code": null
@@ -131,7 +153,7 @@
       "title": "Federated learning with exponentially weighted moving average for real-time emotion classification",
       "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
       "journal": "International Symposium on Ambient Intelligence, 123-133, 2022",
-      "citations": 2,
+      "citations": 3,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:roLk4NBRz8UC",
         "code": null
@@ -142,7 +164,7 @@
       "title": "Soft Computing: Theories and Applications: Proceedings of SoCTA 2021",
       "authors": "R Kumar, CW Ahn, TK Sharma, OP Verma, A Agarwal",
       "journal": "Springer Nature, 2022",
-      "citations": 11,
+      "citations": 12,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:YOwf2qJgpHMC",
         "code": null
@@ -156,6 +178,17 @@
       "citations": 1,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:LkGwnXOMwfcC",
+        "code": null
+      }
+    },
+    {
+      "year": "2022",
+      "title": "Towards a machine-learning approach to analyse the emotional impact of source localization in music",
+      "authors": "E De Filippi, T Schmele, A NANDI",
+      "journal": "Ismir 2022 Hybrid Conference, 2022",
+      "citations": 0,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:buQ7SEKw-1sC",
         "code": null
       }
     },
@@ -175,9 +208,20 @@
       "title": "Real-time emotion classification using eeg data stream in e-learning contexts",
       "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
       "journal": "Sensors 21 (5), 1589, 2021",
-      "citations": 73,
+      "citations": 78,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:qjMakFHDy7sC",
+        "code": null
+      }
+    },
+    {
+      "year": "2021",
+      "title": "Proceedings of the 22nd Engineering Applications of Neural Networks Conference: EANN 2021",
+      "authors": "L Iliadis, J Macintyre, C Jayne, E Pimenidis",
+      "journal": "Springer Nature, 2021",
+      "citations": 22,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:MpfHP-DdYjUC",
         "code": null
       }
     },
@@ -186,7 +230,7 @@
       "title": "A survey on multimodal data stream mining for e-learner’s emotion recognition",
       "authors": "A Nandi, F Xhafa, L Subirats, S Fort",
       "journal": "2020 International conference on omni-layer intelligent systems (COINS), 1-6, 2020",
-      "citations": 20,
+      "citations": 22,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:2osOgNQ5qMEC",
         "code": null
@@ -197,7 +241,7 @@
       "title": "Improving the performance of neural networks with an ensemble of activation functions",
       "authors": "A Nandi, ND Jana, S Das",
       "journal": "2020 international joint conference on neural networks (IJCNN), 1-7, 2020",
-      "citations": 17,
+      "citations": 20,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:u5HHmVD_uO8C",
         "code": null
@@ -208,16 +252,38 @@
       "title": "A novel hybrid neural network-based multirobot path planning with motion coordination",
       "authors": "B Pradhan, A Nandi, NB Hui, DS Roy, JJPC Rodrigues",
       "journal": "IEEE Transactions on Vehicular Technology 69 (2), 1319-1327, 2019",
-      "citations": 37,
+      "citations": 38,
       "links": {
         "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:d1gkVwhDpl0C",
+        "code": null
+      }
+    },
+    {
+      "year": "2019",
+      "title": "An Improved Particle Swarm Optimization based Neural Network Training for Classification",
+      "authors": "P Mondal, A Nandi, ND Jana",
+      "journal": "2019 IEEE Region 10 Symposium (TENSYMP), 681-686, 2019",
+      "citations": 1,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:ALROH1vI_8AC",
+        "code": null
+      }
+    },
+    {
+      "year": "2019",
+      "title": "Accuracy improvement of neural network training using particle swarm optimization and its stability analysis for classification",
+      "authors": "A Nandi, ND Jana",
+      "journal": "arXiv preprint arXiv:1905.04522, 2019",
+      "citations": 7,
+      "links": {
+        "paper": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4re6DoEAAAAJ&cstart=20&pagesize=80&sortby=pubdate&citation_for_view=4re6DoEAAAAJ:zCSUwVk65WsC",
         "code": null
       }
     }
   ],
   "metrics": {
-    "total_citations": 299,
-    "h_index": 295,
-    "i10_index": 10
+    "total_citations": 374,
+    "h_index": 11,
+    "i10_index": 11
   }
 }

@@ -125,3 +125,9 @@ db.sqlite3-journal
 deploy.sh
 README.md
 docs/
+
+.venv/
+scripts/
+
+citation.txt
+publications.txt
