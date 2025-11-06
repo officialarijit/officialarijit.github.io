@@ -29,11 +29,6 @@ jobs:
       run: |
         python scripts/process_blogs.py
         
-    - name: Update publications
-      run: |
-        cd scripts
-        python update_publications.py --auto
-        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
