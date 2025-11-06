@@ -135,6 +135,7 @@
             <a href="#projects" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-secondary">Get In Touch</a>
           </div>
+          
           <div class="hero-stats">
             <div class="stat">
               <span class="stat-number">5+</span>
@@ -148,6 +149,9 @@
               <span class="stat-number">15+</span>
               <span class="stat-label">Publications</span>
             </div>
+
+            
+            
           </div>
         </div>
         <div class="hero-image">
@@ -169,6 +173,7 @@
     </div>
   </section>
 
+  
   <!-- About Section -->
   <section id="about" class="section">
     <div class="container">
@@ -196,23 +201,139 @@
         </div>
         <div class="about-image">
           <img src="assets/images/slide2.jpg" alt="Arijit Nandi - AI Research and Development" class="about-photo">
-          <div class="metrics-display">
-            <div class="metric-item">
-              
-              <span class="metric-label">Total Citations</span>
-              <span class="metric-number">299</span>
-            </div>
-            <div class="metric-item">
-              
-              <span class="metric-label">H-Index</span>
-              <span class="metric-number">10</span>
-            </div>
-            <div class="metric-item">
-              
-              <span class="metric-label">i10-Index</span>
-              <span class="metric-number">10</span>
+          <div class="citations-chart" id="citations-chart-about">
+            <div class="chart-title">Citations per Year</div>
+            <div class="chart-bars"></div>
+            <div class="chart-metrics">
+              <div class="metric">
+                <span class="metric-line"><span class="metric-name">TOTAL CITATIONS</span><span class="metric-value" id="metric-total">—</span></span>
+              </div>
+              <div class="metric">
+                <span class="metric-line"><span class="metric-name">H-INDEX</span><span class="metric-value" id="metric-h">—</span></span>
+              </div>
+              <div class="metric">
+                <span class="metric-line"><span class="metric-name">i10-INDEX</span><span class="metric-value" id="metric-i10">—</span></span>
+              </div>
             </div>
           </div>
+          <style>
+            #citations-chart-about {
+              margin: 12px auto 0;
+              max-width: 480px;
+              border: 1px solid #e5e7eb;
+              border-radius: 10px;
+              padding: 10px 14px;
+              background: #ffffff;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            }
+            #citations-chart-about .chart-title {
+              font-weight: 700;
+              margin-bottom: 8px;
+              text-align: center;
+              letter-spacing: 0.02em;
+              color: #1f2937;
+            }
+            #citations-chart-about .chart-bars {
+              display: flex; align-items: flex-end; justify-content: center; gap: 8px; min-height: 120px;
+            }
+            #citations-chart-about .bar { display: flex; flex-direction: column; align-items: center; }
+            #citations-chart-about .bar-inner {
+              width: 12px;
+              background: linear-gradient(180deg, var(--primary-color), var(--primary-dark));
+              border-radius: 4px 4px 0 0;
+              transition: height .3s ease;
+            }
+            #citations-chart-about .bar-label { font-size: 11px; color: #6b7280; margin-top: 4px; }
+            #citations-chart-about .bar-value { font-size: 11px; color: #111827; margin-top: 2px; font-weight: 600; }
+            #citations-chart-about .chart-metrics {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 8px;
+              margin-top: 10px;
+              text-align: left;
+              background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+              border-radius: 8px;
+              padding: 12px 16px;
+            }
+            #citations-chart-about .chart-metrics .metric-line {
+              display: flex;
+              align-items: baseline;
+              justify-content: space-between;
+              font-size: 15px;
+              color: #fff;
+              font-weight: 700;
+              letter-spacing: 0.02em;
+            }
+            #citations-chart-about .chart-metrics .metric-name {
+              font-weight: 800;
+              text-transform: uppercase;
+            }
+            #citations-chart-about .chart-metrics .metric-value {
+              font-weight: 800;
+              font-variant-numeric: tabular-nums;
+              margin-left: 16px;
+            }
+          </style>
+          <script>
+            (async function() {
+              const root = document.getElementById('citations-chart-about');
+              if (!root) return;
+              const container = root.querySelector('.chart-bars');
+              if (!container) return;
+              container.innerHTML = '';
+              // Try to reuse an already-rendered chart if available
+              const existing = document.querySelector('#citations-chart-inline .chart-bars');
+              if (existing && existing.children.length) {
+                Array.from(existing.children).forEach(n => container.appendChild(n.cloneNode(true)));
+                // do not return; continue to parse metrics below
+              }
+              try {
+                const res = await fetch('citation.txt', { cache: 'no-cache' });
+                if (!res.ok) return;
+                const html = await res.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const yearEls = Array.from(doc.querySelectorAll('.gsc_g_t'));
+                const countEls = Array.from(doc.querySelectorAll('.gsc_g_a .gsc_g_al'));
+                const years = yearEls.map(el => (el.textContent || '').trim()).filter(y => /^\d{4}$/.test(y));
+                const counts = countEls.map(el => parseInt((el.textContent || '0').trim(), 10));
+                if (!years.length || !counts.length) return;
+                const data = years.map((y, i) => ({ year: y, count: counts[i] || 0 }));
+                const max = Math.max(...data.map(d => d.count), 1);
+                if (!existing || !existing.children.length) {
+                  data.forEach(d => {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'bar';
+                    const inner = document.createElement('div');
+                    inner.className = 'bar-inner';
+                    inner.style.height = (Math.max(4, (d.count / max) * 100)) + 'px';
+                    const val = document.createElement('div');
+                    val.className = 'bar-value';
+                    val.textContent = String(d.count);
+                    const lbl = document.createElement('div');
+                    lbl.className = 'bar-label';
+                    lbl.textContent = d.year;
+                    wrap.appendChild(inner);
+                    wrap.appendChild(val);
+                    wrap.appendChild(lbl);
+                    container.appendChild(wrap);
+                  });
+                }
+                // Populate metrics from table (All column: indices 0,2,4)
+                const cells = Array.from(doc.querySelectorAll('td.gsc_rsb_std')).map(el => (el.textContent || '').trim());
+                if (cells.length >= 5) {
+                  const mt = document.getElementById('metric-total');
+                  const mh = document.getElementById('metric-h');
+                  const mi = document.getElementById('metric-i10');
+                  if (mt) mt.textContent = cells[0];
+                  if (mh) mh.textContent = cells[2];
+                  if (mi) mi.textContent = cells[4];
+                }
+              } catch (e) {
+                // ignore
+              }
+            })();
+          </script>
+           
           <div class="flag-counter">
             <a href="https://info.flagcounter.com/XBAZ"><img src="https://s05.flagcounter.com/map/XBAZ/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
           </div>
@@ -771,6 +892,149 @@
     </div>
   </section>
 
+  <!-- Thesis Section -->
+  <section id="thesis" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Thesis</h2>
+      </div>
+
+      <div id="thesis-card" class="thesis-card">
+        <div class="thesis-content">
+          <h3 class="thesis-title">Loading thesis...</h3>
+          <p class="thesis-meta"></p>
+          <div class="thesis-actions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .thesis-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .thesis-title {
+      margin: 0 0 8px 0;
+      font-size: 1.15rem;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .thesis-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .thesis-meta {
+      margin: 0 0 14px 0;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+    .thesis-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .thesis-actions a.btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .thesis-actions .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: #fff;
+    }
+  </style>
+
+  <style>
+    /* Thesis section themed background and subtle pattern */
+    #thesis.section {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      position: relative;
+    }
+    #thesis.section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(45deg,
+        rgba(102,126,234,0.04) 0px,
+        rgba(102,126,234,0.04) 12px,
+        rgba(102,126,234,0.02) 12px,
+        rgba(102,126,234,0.02) 24px);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+    }
+    /* Card accent bar */
+    .thesis-card { border-left: 4px solid #667eea; }
+  </style>
+
+  <script>
+    (function() {
+      const thesisData = {
+        type: 'Ph.D. Thesis',
+        title: 'Multimodal data stream classification and prediction of e-learner\u2019s emotional states',
+        directors: ['Prof. (Dr.) Fatos Xhafa', 'Dra. Laia Subirats Mate'],
+        defenseDate: '2024',
+        documentType: 'Doctoral Thesis',
+        collection: 'Universitat Politècnica de Catalunya',
+        links: [
+          { href: 'https://portalrecerca.csuc.cat/111423984', label: 'Portal de la Recerca de Catalunya' },
+          { href: 'https://dialnet.unirioja.es/servlet/tesis?codigo=384828', label: 'Dialnet' }
+        ]
+      };
+
+      const card = document.getElementById('thesis-card');
+      if (!card) return;
+      const titleEl = card.querySelector('.thesis-title');
+      const metaEl = card.querySelector('.thesis-meta');
+      const actionsEl = card.querySelector('.thesis-actions');
+
+      if (titleEl) titleEl.innerHTML = (thesisData.type ? `<span class="thesis-tag">${thesisData.type}</span>` : '') + thesisData.title;
+
+      // Build multi-line meta details
+      const lines = [];
+      if (thesisData.directors && thesisData.directors.length) {
+        lines.push('Director: ' + thesisData.directors.join(' · '));
+      }
+      if (thesisData.defenseDate) {
+        lines.push('Defense Date: ' + thesisData.defenseDate);
+      }
+      if (thesisData.documentType) {
+        lines.push('Document type: ' + thesisData.documentType);
+      }
+      if (thesisData.collection) {
+        lines.push('Appears in Collections: ' + thesisData.collection);
+      }
+      if (metaEl) metaEl.innerHTML = lines.map(l => `<div>${l}</div>`).join('');
+
+      // Action links
+      actionsEl.innerHTML = '';
+      thesisData.links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.className = 'btn btn-primary';
+        a.textContent = link.label;
+        actionsEl.appendChild(a);
+      });
+    })();
+  </script>
+
+
   <!-- Publications Section -->
   <section id="publications" class="section bg-light">
     <div class="container">
@@ -794,6 +1058,8 @@
           </div>
         </div>
       </div>
+
+      
 
       <div class="publications-list" id="publications-list">
         <!-- Publications will be loaded dynamically from data/publications.json -->
