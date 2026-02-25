@@ -617,9 +617,9 @@ async function fetchGoogleScholarMetrics() {
     } else {
       // Fallback to default metrics
       displayCitationMetrics({
-        total_citations: 263,
-        h_index: 9,
-        i10_index: 9
+        total_citations: 389,
+        h_index: 10,
+        i10_index: 10
       });
     }
   } catch (error) {
@@ -631,9 +631,9 @@ async function fetchGoogleScholarMetrics() {
     } else {
       // Final fallback
       displayCitationMetrics({
-        total_citations: 263,
-        h_index: 9,
-        i10_index: 9
+        total_citations: 389,
+        h_index: 10,
+        i10_index: 10
       });
     }
   }
