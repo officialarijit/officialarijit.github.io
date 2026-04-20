@@ -12,7 +12,7 @@
   --accent-cyan: #06b6d4;
   --accent-rose: #f43f5e;
   --text-primary: #0f172a;
-  --text-secondary: #64748b;
+  --text-secondary: #4d5a6e;
   --text-light: #fff;
 
   /* Background Colors */
@@ -436,7 +436,7 @@ nav {
 
 .stat-label {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: -var(--text-light);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -641,7 +641,7 @@ nav {
   margin-bottom: 1.5rem;
   text-align: justify;
   line-height: 1.7;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   font-size: 1rem;
 }
 
@@ -1618,7 +1618,7 @@ body.dark-mode .blog-preview-loading p {
 
 .stat-label {
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: var(--text-light);
   font-weight: 500;
 }
 
