@@ -65,15 +65,7 @@ class NavbarManager {
                 // Initialize navbar background effects
                 this.initializeNavbarEffects();
 
-                // Initialize dark mode after navbar is loaded with a small delay
-                setTimeout(() => {
-                    if (typeof initDarkMode === 'function') {
-                        console.log('Initializing dark mode from navbar manager...');
-                        initDarkMode();
-                    } else {
-                        console.warn('initDarkMode function not found');
-                    }
-                }, 200);
+                // Dark mode is handled by the self-contained module in script.js
 
                 // Retry dropdown initialization with a delay to ensure DOM is ready
                 setTimeout(() => {
@@ -147,15 +139,7 @@ class NavbarManager {
         this.initializeSmoothScrolling();
         this.initializeNavbarEffects();
         
-        // Initialize dark mode after navbar is loaded with a small delay
-        setTimeout(() => {
-            if (typeof initDarkMode === 'function') {
-                console.log('Initializing dark mode from fallback navbar...');
-                initDarkMode();
-            } else {
-                console.warn('initDarkMode function not found in fallback');
-            }
-        }, 200);
+        // Dark mode is handled by the self-contained module in script.js
 
         this.isInitialized = true;
     }
@@ -393,15 +377,26 @@ class NavbarManager {
         const nav = document.querySelector('nav');
 
         if (nav) {
-            window.addEventListener('scroll', () => {
+            const updateNavBg = () => {
+                const isDark = document.body.classList.contains('dark-mode');
                 if (window.scrollY > 100) {
-                    nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                    nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                    nav.style.background = isDark
+                        ? 'rgba(10, 15, 30, 0.97)'
+                        : 'rgba(248, 250, 252, 0.97)';
+                    nav.style.boxShadow = isDark
+                        ? '0 2px 20px rgba(0, 0, 0, 0.4)'
+                        : '0 2px 20px rgba(99, 102, 241, 0.1)';
                 } else {
-                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                    nav.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+                    nav.style.background = '';
+                    nav.style.boxShadow = '';
                 }
-            });
+            };
+
+            window.addEventListener('scroll', updateNavBg);
+
+            // Re-run whenever dark mode class changes so the navbar colour stays in sync
+            const bodyObserver = new MutationObserver(updateNavBg);
+            bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
         }
 
         // Initialize section tracking for active states

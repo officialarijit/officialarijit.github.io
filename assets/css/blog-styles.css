@@ -1,6 +1,6 @@
 /* Blog Page Styles */
 .blog-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--gradient-hero);
   color: var(--text-light);
   padding: 4rem 0 3rem 0;
   text-align: center;
@@ -53,27 +53,28 @@
 }
 
 .filter-btn {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--text-light);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-weight: 600;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(10px);
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(12px);
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--text-light);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--primary-color);
-  border-color: var(--text-light);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .blog-content {

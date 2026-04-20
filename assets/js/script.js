@@ -8,13 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   fetchGoogleScholarPublications();
   fetchGoogleScholarMetrics();
   
-  // Dark mode will be initialized by navbar.js to ensure proper order
-  // Only initialize if navbar hasn't already done it
-  setTimeout(() => {
-    if (typeof initDarkMode === 'function' && !document.body.classList.contains('dark-mode-initialized')) {
-      initDarkMode();
-    }
-  }, 1000);
+  // Dark mode is handled by the self-contained IIFE above (no init needed here)
 });
 
 // Remove the immediate dark mode initialization to prevent conflicts
@@ -787,110 +781,66 @@ function updateMetricsSection(metrics) {
   }, 100);
 }
 
-function setDarkMode(enabled) {
-  console.log('Setting dark mode:', enabled);
-  
-  try {
-    if (enabled) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('darkMode', 'true');
-      
-      // Update all dark mode toggle buttons
-      const toggleButtons = document.querySelectorAll('.dark-mode-toggle i');
-      toggleButtons.forEach(i => {
-        i.classList.remove('fa-moon');
-        i.classList.add('fa-sun');
-      });
-    } else {
-      document.body.classList.remove('dark-mode');
-      localStorage.setItem('darkMode', 'false');
-      
-      // Update all dark mode toggle buttons
-      const toggleButtons = document.querySelectorAll('.dark-mode-toggle i');
-      toggleButtons.forEach(i => {
-        i.classList.remove('fa-sun');
-        i.classList.add('fa-moon');
-      });
-    }
-    
-    console.log('Dark mode set successfully. Body classes:', document.body.classList.toString());
-  } catch (error) {
-    console.error('Error setting dark mode:', error);
+// ─── Dark Mode ────────────────────────────────────────────────────────────────
+// Single source of truth. Uses event delegation so it works regardless of when
+// the navbar HTML is injected into the DOM.
+(function () {
+  function applyDarkMode(enabled) {
+    document.body.classList.toggle('dark-mode', enabled);
+    // Remove the early-apply pending class from <html> (if present)
+    document.documentElement.classList.remove('dark-mode-pending');
+    // Unhide body in case it was hidden to prevent flash
+    document.body.style.visibility = '';
+    try { localStorage.setItem('darkMode', enabled ? 'true' : 'false'); } catch (e) {}
+    // Sync icon(s) — works even if the button doesn't exist yet
+    document.querySelectorAll('.dark-mode-toggle i').forEach(function (icon) {
+      icon.classList.toggle('fa-sun', enabled);
+      icon.classList.toggle('fa-moon', !enabled);
+    });
   }
-}
 
-function initDarkMode() {
-  console.log('Initializing dark mode...');
-  
-  // Check if already initialized
-  if (document.body.classList.contains('dark-mode-initialized')) {
-    console.log('Dark mode already initialized, skipping...');
-    return;
+  function getPreference() {
+    try {
+      var saved = localStorage.getItem('darkMode');
+      if (saved !== null) return saved === 'true';
+    } catch (e) {}
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
-  
-  try {
-    // Get saved preference or system preference
-    const saved = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Determine if dark mode should be enabled
-    let enabled = false;
-    if (saved !== null) {
-      enabled = saved === 'true';
-    } else {
-      enabled = prefersDark;
-    }
-    
-    console.log('Dark mode preferences:', { 
-      saved, 
-      prefersDark, 
-      enabled,
-      bodyClasses: document.body.classList.toString() 
+
+  // Apply preference as early as possible
+  applyDarkMode(getPreference());
+
+  // Event delegation — catches the button however late it is injected
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.dark-mode-toggle');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    applyDarkMode(!document.body.classList.contains('dark-mode'));
+  });
+
+  // Re-sync icon whenever the navbar is injected (MutationObserver)
+  var navObserver = new MutationObserver(function () {
+    var icon = document.querySelector('.dark-mode-toggle i');
+    if (!icon) return;
+    var isDark = document.body.classList.contains('dark-mode');
+    icon.classList.toggle('fa-sun', isDark);
+    icon.classList.toggle('fa-moon', !isDark);
+  });
+  navObserver.observe(document.body, { childList: true, subtree: false });
+
+  // System preference change (only when user hasn't manually chosen)
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+      try { if (localStorage.getItem('darkMode') !== null) return; } catch (err) {}
+      applyDarkMode(e.matches);
     });
-    
-    // Set initial state
-    setDarkMode(enabled);
-    
-    // Add event listeners to all dark mode toggle buttons
-    const toggleButtons = document.querySelectorAll('.dark-mode-toggle');
-    console.log('Found dark mode toggle buttons:', toggleButtons.length);
-    
-    toggleButtons.forEach((btn, index) => {
-      console.log(`Setting up toggle button ${index + 1}`);
-      
-      // Remove any existing listeners
-      btn.replaceWith(btn.cloneNode(true));
-      
-      // Get the new button reference
-      const newBtn = document.querySelectorAll('.dark-mode-toggle')[index];
-      
-      newBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        console.log('Dark mode toggle clicked');
-        const currentDarkMode = document.body.classList.contains('dark-mode');
-        setDarkMode(!currentDarkMode);
-      });
-    });
-    
-    // Listen for system preference changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      const saved = localStorage.getItem('darkMode');
-      if (saved === null) {
-        // Only auto-switch if user hasn't manually set a preference
-        setDarkMode(e.matches);
-      }
-    });
-    
-    // Mark as initialized
-    document.body.classList.add('dark-mode-initialized');
-    
-    console.log('Dark mode initialization completed');
-  } catch (error) {
-    console.error('Error initializing dark mode:', error);
   }
-}
+
+  // Expose for legacy callers in navbar.js so they don't throw errors
+  window.initDarkMode = function () {};
+  window.setDarkMode = applyDarkMode;
+}());
 
 // Copy email to clipboard function
 function copyEmailToClipboard() {
