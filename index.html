@@ -85,6 +85,9 @@
   }
   </script>
   
+  <!-- Apply saved theme before first paint to prevent flash -->
+  <script>(function(){try{if(localStorage.getItem('darkMode')==='true')document.documentElement.classList.add('dark-mode-pending');}catch(e){}})()</script>
+
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/navbar.css">
   <link rel="stylesheet" href="assets/css/lightbox.css">
@@ -225,11 +228,12 @@
             #citations-chart-about {
               margin: 12px auto 0;
               max-width: 480px;
-              border: 1px solid #e5e7eb;
-              border-radius: 10px;
-              padding: 10px 14px;
-              background: #ffffff;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+              border: 1px solid rgba(99, 102, 241, 0.2);
+              border-radius: 16px;
+              padding: 12px 16px;
+              background: var(--bg-glass, rgba(255,255,255,0.85));
+              backdrop-filter: blur(8px);
+              box-shadow: 0 4px 16px rgba(99, 102, 241, 0.1);
             }
             #citations-chart-about .chart-title {
               font-weight: 700;
@@ -351,7 +355,7 @@
   <section id="skills" class="section bg-light">
     <div class="container">
       <div class="section-header">
-      <h2>Technical Skills</h2>
+        <h2>Technical Skills</h2>
         <p class="section-subtitle">Technologies and tools I work with</p>
       </div>
 
@@ -855,7 +859,7 @@
   <section id="education" class="section">
     <div class="container">
       <div class="section-header">
-      <h2>Education</h2>
+        <h2>Education</h2>
         <p class="section-subtitle">My academic background</p>
       </div>
       
@@ -916,11 +920,21 @@
 
   <style>
     .thesis-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 18px;
-      background: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      border-radius: 20px;
+      padding: 24px;
+      background: var(--bg-glass, rgba(255,255,255,0.85));
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .thesis-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
     }
     .thesis-title {
       margin: 0 0 8px 0;
@@ -965,9 +979,9 @@
   </style>
 
   <style>
-    /* Thesis section themed background and subtle pattern */
+    /* Thesis section themed background */
     #thesis.section {
-      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      background: linear-gradient(180deg, var(--bg-primary, #f8fafc) 0%, var(--bg-light-blue, #eef2ff) 100%);
       position: relative;
     }
     #thesis.section::before {
@@ -976,14 +990,12 @@
       inset: 0;
       pointer-events: none;
       background: repeating-linear-gradient(45deg,
-        rgba(102,126,234,0.04) 0px,
-        rgba(102,126,234,0.04) 12px,
-        rgba(102,126,234,0.02) 12px,
-        rgba(102,126,234,0.02) 24px);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+        rgba(99,102,241,0.03) 0px,
+        rgba(99,102,241,0.03) 12px,
+        rgba(139,92,246,0.02) 12px,
+        rgba(139,92,246,0.02) 24px);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
     }
-    /* Card accent bar */
-    .thesis-card { border-left: 4px solid #667eea; }
   </style>
 
   <script>
@@ -1046,7 +1058,7 @@
     <div class="container">
       <div class="section-header">
         <h2>Publications</h2>
-        <p class="section-subtitle">Research contributions</p>
+        <p class="section-subtitle">Research contributions and scientific work</p>
       </div>
 
       <!-- Publication Filter -->
