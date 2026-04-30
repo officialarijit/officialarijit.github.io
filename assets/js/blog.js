@@ -147,9 +147,48 @@ class BlogSystem {
         const postsHTML = filteredPosts.map(post => this.createPostCard(post)).join('');
         blogPostsContainer.innerHTML = postsHTML;
 
+        this.injectBlogPostingSchemas(filteredPosts);
+
         // Add click listeners to post cards
         this.setupPostCardListeners();
         console.log('Blog posts rendered successfully');
+    }
+
+    injectBlogPostingSchemas(posts) {
+        document.querySelectorAll('script[data-blog-schema]').forEach(el => el.remove());
+        posts.forEach(post => {
+            const schema = {
+                '@context': 'https://schema.org',
+                '@type': 'BlogPosting',
+                'headline': post.title,
+                'description': post.excerpt,
+                'datePublished': post.date,
+                'dateModified': post.date,
+                'image': `https://officialarijit.github.io/${post.image || 'assets/images/slide2.jpg'}`,
+                'url': `https://officialarijit.github.io/blog.html#${post.slug || post.id}`,
+                'keywords': (post.tags || []).join(', '),
+                'author': {
+                    '@type': 'Person',
+                    '@id': 'https://officialarijit.github.io/#arijit-nandi',
+                    'name': 'Arijit Nandi',
+                    'url': 'https://officialarijit.github.io'
+                },
+                'publisher': {
+                    '@type': 'Person',
+                    'name': 'Arijit Nandi',
+                    'url': 'https://officialarijit.github.io'
+                },
+                'mainEntityOfPage': {
+                    '@type': 'WebPage',
+                    '@id': 'https://officialarijit.github.io/blog.html'
+                }
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.setAttribute('data-blog-schema', post.id);
+            script.textContent = JSON.stringify(schema);
+            document.head.appendChild(script);
+        });
     }
 
     getFilteredPosts() {
