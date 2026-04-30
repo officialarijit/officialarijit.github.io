@@ -30,23 +30,27 @@ jobs:
       - name: Process blog posts
         run: |
           python scripts/process_blogs.py
-          
+
+      - name: Inject static SEO content into index.html
+        run: |
+          python scripts/render_static.py
+
       - name: Check for changes
         id: check_changes
         run: |
-          if git diff --quiet data/blog_posts.json; then
+          if git diff --quiet data/blog_posts.json index.html; then
             echo "changes=false" >> $GITHUB_OUTPUT
           else
             echo "changes=true" >> $GITHUB_OUTPUT
           fi
-          
+
       - name: Commit and push changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/blog_posts.json
-          git commit -m "Auto-update blog posts from Markdown files"
+          git add data/blog_posts.json index.html
+          git commit -m "Auto-update blog posts and inject static SEO content"
           git push
           
       - name: No changes detected

@@ -7,19 +7,7 @@ Allow: /blog.html
 Allow: /404.html
 Allow: /assets/
 Allow: /data/
-Allow: /docs/
 Allow: /blogs/
-
-# Allow specific content types
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.svg$
-Allow: /*.ico$
-Allow: /*.pdf$
 
 # Disallow private or unnecessary files
 Disallow: /.git/
@@ -29,11 +17,6 @@ Disallow: /components/
 Disallow: /requirements.txt
 Disallow: /deploy.sh
 Disallow: /CNAME
-Disallow: /*.log$
-Disallow: /*.tmp$
-Disallow: /*.bak$
-
-# Disallow admin or private areas (if any)
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
@@ -44,7 +27,6 @@ Sitemap: https://officialarijit.github.io/sitemap.xml
 # Crawl delay (be respectful to servers)
 Crawl-delay: 1
 
-# Additional directives for better SEO
 # Allow Googlebot to crawl everything
 User-agent: Googlebot
 Allow: /
@@ -66,4 +48,4 @@ Crawl-delay: 1
 
 User-agent: LinkedInBot
 Allow: /
-Crawl-delay: 1 
+Crawl-delay: 1
