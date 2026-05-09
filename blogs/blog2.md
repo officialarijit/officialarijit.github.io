@@ -6,7 +6,7 @@ date: "2024-01-22"
 read_time: "12 min read"
 category: "Deep Learning"
 tags: ["Deep Learning", "Neural Networks", "AI", "TensorFlow"]
-image: "assets/images/slide3.jpg"
+image: "assets/images/dl.png"
 excerpt: "Explore the fundamentals of deep learning and neural networks, from basic perceptrons to complex architectures, with hands-on examples and mathematical insights."
 ---
 
