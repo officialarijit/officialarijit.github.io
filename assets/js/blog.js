@@ -3,6 +3,13 @@
  * Handles dynamic blog loading, filtering, and LaTeX rendering
  */
 
+/** YYYY-MM-DD → ISO 8601 datetime (Google expects timezone for DateTime fields). */
+function toSchemaDateTime(value) {
+    if (!value || typeof value !== 'string') return value;
+    const s = value.trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(s) ? `${s}T00:00:00+00:00` : s;
+}
+
 class BlogSystem {
     constructor() {
         this.blogPosts = [];
@@ -162,8 +169,8 @@ class BlogSystem {
                 '@type': 'BlogPosting',
                 'headline': post.title,
                 'description': post.excerpt,
-                'datePublished': post.date,
-                'dateModified': post.date,
+                'datePublished': toSchemaDateTime(post.date),
+                'dateModified': toSchemaDateTime(post.date),
                 'image': `https://officialarijit.github.io/${post.image || 'assets/images/slide2.jpg'}`,
                 'url': `https://officialarijit.github.io/blog.html#${post.slug || post.id}`,
                 'keywords': (post.tags || []).join(', '),
