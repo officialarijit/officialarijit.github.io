@@ -6,7 +6,7 @@ date: "2024-01-15"
 read_time: "8 min read"
 category: "Machine Learning"
 tags: ["ML", "AI", "Algorithms", "Python"]
-image: "assets/images/slide2.jpg"
+image: "assets/images/ml.png"
 excerpt: "This comprehensive guide covers the fundamental concepts of machine learning, from basic algorithms to advanced techniques, with practical code examples and mathematical foundations."
 ---
 
