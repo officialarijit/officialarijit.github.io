@@ -1,0 +1,61 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ site.url }}{{ site.baseurl }}/#arijit-nandi",
+  "name": "{{ site.data.site.name }}",
+  "jobTitle": "{{ site.data.site.title }}",
+  "description": "{{ site.description }}",
+  "url": "{{ site.url }}{{ site.baseurl }}",
+  "image": "{{ site.url }}{{ site.baseurl }}{{ site.data.site.image }}",
+  "email": "{{ site.data.site.email }}",
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "UPC-BarcelonaTech"
+  },
+  "knowsAbout": [
+    "Machine Learning",
+    "Deep Learning",
+    "Federated Learning",
+    "Explainable AI",
+    "Large Language Models",
+    "Artificial Intelligence",
+    "Emotion Recognition",
+    "Trustworthy AI"
+  ],
+  "sameAs": {{ site.data.site.same_as | jsonify }},
+  "worksFor": {
+    "@type": "Organization",
+    "name": "AI Research & Development"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ site.data.site.location }}",
+    "addressCountry": "{{ site.data.site.country }}"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "dateCreated": "2023-01-01T00:00:00+00:00",
+  "dateModified": "2026-05-01T00:00:00+00:00",
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "{{ site.url }}{{ site.baseurl }}/#arijit-nandi",
+    "name": "{{ site.data.site.name }}",
+    "jobTitle": "{{ site.data.site.title }}",
+    "description": "{{ site.description }}",
+    "image": "{{ site.url }}{{ site.baseurl }}{{ site.data.site.image }}",
+    "sameAs": [
+      "https://github.com/officialarijit",
+      "https://www.linkedin.com/in/arin2/",
+      "https://orcid.org/0000-0003-4238-5183",
+      "https://scholar.google.com/citations?user={{ site.data.site.scholar_id }}"
+    ]
+  }
+}
+</script>

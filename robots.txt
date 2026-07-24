@@ -1,51 +1,15 @@
 User-agent: *
 Allow: /
 
-# Allow all pages and assets
-Allow: /index.html
 Allow: /blog.html
-Allow: /404.html
+Allow: /blog/
 Allow: /assets/
-Allow: /data/
-Allow: /blogs/
 
-# Disallow private or unnecessary files
 Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
-Disallow: /components/
+Disallow: /data/
 Disallow: /requirements.txt
-Disallow: /deploy.sh
 Disallow: /CNAME
-Disallow: /admin/
-Disallow: /private/
-Disallow: /temp/
 
-# Sitemap location
 Sitemap: https://officialarijit.github.io/sitemap.xml
-
-# Crawl delay (be respectful to servers)
-Crawl-delay: 1
-
-# Allow Googlebot to crawl everything
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-# Allow Bingbot
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Allow social media crawlers
-User-agent: Twitterbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: facebookexternalhit
-Allow: /
-Crawl-delay: 1
-
-User-agent: LinkedInBot
-Allow: /
-Crawl-delay: 1

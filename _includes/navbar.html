@@ -1,0 +1,122 @@
+<!-- Site Sidebar Navigation -->
+<nav class="site-sidebar" aria-label="Primary navigation" data-site-nav>
+  <div class="site-sidebar__brand">
+    <a href="{{ '/index.html' | relative_url }}#hero" class="site-sidebar__identity" data-nav-label="Home">
+      <span class="site-sidebar__avatar">AN</span>
+      <span class="site-sidebar__brand-text">
+        <strong>Arijit Nandi, Ph.D.</strong>
+        <small>Advanced ML Researcher</small>
+      </span>
+    </a>
+    <button class="site-sidebar__collapse" type="button" aria-label="Minimize navigation" title="Minimize sidebar" data-sidebar-collapse>
+      <i class="fas fa-angles-left"></i>
+    </button>
+    <button class="site-sidebar__close" type="button" aria-label="Close navigation" data-sidebar-close>
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div class="site-sidebar__panel">
+    <p class="site-sidebar__eyebrow">Navigation</p>
+    <ul class="site-nav-list">
+      <li class="site-nav-group open">
+        <button class="site-nav-parent" type="button" aria-expanded="true" aria-label="Overview menu" title="Overview" data-label="Overview" data-submenu-toggle>
+          <i class="fas fa-house"></i>
+          <span class="site-nav-parent__text">
+            <strong>Overview</strong>
+            <small>Start here</small>
+          </span>
+          <i class="fas fa-chevron-down site-nav-parent__chevron"></i>
+        </button>
+        <ul class="site-submenu">
+          <li><a href="{{ '/index.html' | relative_url }}#hero" class="site-submenu-link" data-page="home" data-section="hero">Home</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}#about" class="site-submenu-link" data-page="home" data-section="about">Short Bio</a></li>
+        </ul>
+      </li>
+      <li class="site-nav-group open">
+        <button class="site-nav-parent" type="button" aria-expanded="true" aria-label="Profile menu" title="Profile" data-label="Profile" data-submenu-toggle>
+          <i class="fas fa-user-astronaut"></i>
+          <span class="site-nav-parent__text">
+            <strong>Profile</strong>
+            <small>Background</small>
+          </span>
+          <i class="fas fa-chevron-down site-nav-parent__chevron"></i>
+        </button>
+        <ul class="site-submenu">
+          <li><a href="{{ '/index.html' | relative_url }}#skills" class="site-submenu-link" data-page="home" data-section="skills">Expertise</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}#experience" class="site-submenu-link" data-page="home" data-section="experience">Experience</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}#education" class="site-submenu-link" data-page="home" data-section="education">Education</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}#thesis" class="site-submenu-link" data-page="home" data-section="thesis">Thesis</a></li>
+        </ul>
+      </li>
+      <li class="site-nav-group">
+        <button class="site-nav-parent" type="button" aria-expanded="false" aria-label="Work menu" title="Work" data-label="Work" data-submenu-toggle>
+          <i class="fas fa-diagram-project"></i>
+          <span class="site-nav-parent__text">
+            <strong>Work</strong>
+            <small>Projects</small>
+          </span>
+          <i class="fas fa-chevron-down site-nav-parent__chevron"></i>
+        </button>
+        <ul class="site-submenu">
+          <li><a href="{{ '/index.html' | relative_url }}#projects" class="site-submenu-link" data-page="home" data-section="projects">Featured Projects</a></li>
+        </ul>
+      </li>
+      <li class="site-nav-group open">
+        <button class="site-nav-parent" type="button" aria-expanded="true" aria-label="Research menu" title="Research" data-label="Research" data-submenu-toggle>
+          <i class="fas fa-book-open-reader"></i>
+          <span class="site-nav-parent__text">
+            <strong>Research</strong>
+            <small>Publications</small>
+          </span>
+          <i class="fas fa-chevron-down site-nav-parent__chevron"></i>
+        </button>
+        <ul class="site-submenu">
+          <li><a href="{{ '/index.html' | relative_url }}#publications" class="site-submenu-link" data-page="home" data-section="publications">Publications</a></li>
+          <li><a href="{{ '/index.html' | relative_url }}#social-media" class="site-submenu-link" data-page="home" data-section="social-media">Research Profiles</a></li>
+        </ul>
+      </li>
+      <li class="site-nav-group">
+        <button class="site-nav-parent" type="button" aria-expanded="false" aria-label="Writing menu" title="Writing" data-label="Writing" data-submenu-toggle>
+          <i class="fas fa-pen-nib"></i>
+          <span class="site-nav-parent__text">
+            <strong>Writing</strong>
+            <small>Blog</small>
+          </span>
+          <i class="fas fa-chevron-down site-nav-parent__chevron"></i>
+        </button>
+        <ul class="site-submenu">
+          <li><a href="{{ '/index.html' | relative_url }}#blog-preview" class="site-submenu-link" data-page="home" data-section="blog-preview">Latest Posts</a></li>
+          <li><a href="{{ '/blog.html' | relative_url }}" class="site-submenu-link" data-page="blog">All Blog Posts</a></li>
+        </ul>
+      </li>
+      <li class="site-nav-group">
+        <button class="site-nav-parent" type="button" aria-expanded="false" aria-label="Connect menu" title="Connect" data-label="Connect" data-submenu-toggle>
+          <i class="fas fa-paper-plane"></i>
+          <span class="site-nav-parent__text">
+            <strong>Connect</strong>
+            <small>Contact</small>
+          </span>
+          <i class="fas fa-chevron-down site-nav-parent__chevron"></i>
+        </button>
+        <ul class="site-submenu">
+          <li><a href="{{ '/index.html' | relative_url }}#contact" class="site-submenu-link" data-page="home" data-section="contact">Work Together</a></li>
+          <li><a href="mailto:{{ site.data.site.email }}" class="site-submenu-link">Email</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="site-sidebar__footer">
+    <div class="site-sidebar__socials" aria-label="Social links">
+      <a href="https://www.linkedin.com/in/arin2/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/officialarijit" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user={{ site.data.site.scholar_id }}" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    </div>
+    <button id="darkModeToggle" class="dark-mode-toggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+      <span>Theme</span>
+    </button>
+  </div>
+</nav>
+<div class="site-sidebar-overlay" data-sidebar-overlay hidden></div>

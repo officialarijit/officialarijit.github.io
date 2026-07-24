@@ -1,0 +1,21 @@
+  <!-- Blog Preview Section -->
+  <section id="blog-preview" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Latest Blog Posts</h2>
+        <p class="section-subtitle">Thoughts on AI, ML, and technology</p>
+      </div>
+
+      <div class="blog-preview-grid" id="blog-preview-grid">
+        <div class="blog-preview-loading">
+          <div class="loading-spinner"></div>
+          <p>Loading latest blog posts...</p>
+        </div>
+        {% include static-blog-preview.html %}
+      </div>
+
+      <div class="blog-preview-cta">
+        <a href="{{ '/blog.html' | relative_url }}" class="btn btn-primary">View All Posts</a>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,81 @@
+<section id="contact" class="section dossier-contact">
+  <div class="section-header">
+    <h2>Get in Touch</h2>
+    <p class="section-subtitle">Research partnerships, consulting, and applied ML collaborations</p>
+  </div>
+
+  <div class="dossier-contact-channels">
+    <a class="dossier-contact-channel" href="mailto:{{ site.data.site.email }}">
+      <span class="dossier-contact-channel__icon" aria-hidden="true">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="dossier-contact-channel__body">
+        <strong>Email</strong>
+        <span>{{ site.data.site.email }}</span>
+      </span>
+      <span class="dossier-contact-channel__arrow" aria-hidden="true">
+        <i class="fas fa-arrow-up-right-from-square"></i>
+      </span>
+    </a>
+
+    <a
+      class="dossier-contact-channel"
+      href="https://www.linkedin.com/in/arin2/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="dossier-contact-channel__icon" aria-hidden="true">
+        <i class="fab fa-linkedin"></i>
+      </span>
+      <span class="dossier-contact-channel__body">
+        <strong>LinkedIn</strong>
+        <span>Professional messages welcome</span>
+      </span>
+      <span class="dossier-contact-channel__arrow" aria-hidden="true">
+        <i class="fas fa-arrow-up-right-from-square"></i>
+      </span>
+    </a>
+
+    <div class="dossier-contact-channel dossier-contact-channel--static">
+      <span class="dossier-contact-channel__icon" aria-hidden="true">
+        <i class="fas fa-location-dot"></i>
+      </span>
+      <span class="dossier-contact-channel__body">
+        <strong>Location</strong>
+        <span>{{ site.data.site.location }}, Spain</span>
+      </span>
+    </div>
+  </div>
+
+  <article class="dossier-contact-card">
+    <span class="thesis-tag">Collaboration</span>
+    <h3 class="dossier-contact-card__title">
+      Interested in trustworthy AI, federated learning, or applied ML systems?
+    </h3>
+    <p class="dossier-contact-card__lead">
+      Send a brief note and I&rsquo;ll reply with the best next step — whether that&rsquo;s a call, a research discussion, or a scoped engagement.
+    </p>
+
+    <ul class="dossier-contact-card__list">
+      <li>The problem or research question you&rsquo;re working on</li>
+      <li>Timeline, constraints, and expected outcomes</li>
+      <li>The kind of support you need (research, engineering, review, or advisory)</li>
+    </ul>
+
+    <div class="dossier-contact-card__actions">
+      <a href="mailto:{{ site.data.site.email }}" class="btn btn-primary">
+        Email {{ site.data.site.name | split: ' ' | first }}
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
+      <a
+        href="https://github.com/officialarijit"
+        class="btn btn-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+    </div>
+  </article>
+</section>

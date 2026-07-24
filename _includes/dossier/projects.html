@@ -1,0 +1,61 @@
+<section id="projects" class="section dossier-projects">
+  <div class="section-header">
+    <h2>Featured Projects</h2>
+    <p class="section-subtitle">Research systems with published outcomes and open-source implementations</p>
+  </div>
+
+  <div class="dossier-projects-list">
+    {% for project in site.data.projects.projects %}
+    <article class="dossier-project-card">
+      <a
+        class="dossier-project-card__image"
+        href="{{ project.github_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="View {{ project.title }} on GitHub"
+      >
+        <img
+          src="{{ project.image | relative_url }}"
+          alt="{{ project.image_alt }}"
+          width="600"
+          height="400"
+          loading="lazy"
+        >
+      </a>
+
+      <div class="dossier-project-card__body">
+        <span class="thesis-tag">{{ project.venue }}</span>
+        <h3 class="dossier-project-card__title">{{ project.title }}</h3>
+        <p class="dossier-project-card__desc">{{ project.description }}</p>
+
+        <div class="dossier-project-card__tech">
+          {% for tag in project.tech %}
+          <span class="thesis-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+
+        <div class="dossier-project-card__actions">
+          <a
+            href="{{ project.paper_url }}"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View paper
+            <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <a
+            href="{{ project.github_url }}"
+            class="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<section id="skills" class="section dossier-skills">
+  <div class="section-header">
+    <h2>Technical Skills</h2>
+    <p class="section-subtitle">Core stack for modeling, data systems, MLOps, and applied AI delivery</p>
+  </div>
+
+  <div class="dossier-skills-grid">
+    {% for category in site.data.skills.categories %}
+    <article class="dossier-skill-box">
+      <h3 class="dossier-skill-box__title">
+        <i class="fas {{ category.icon }}" aria-hidden="true"></i>
+        {{ category.name }}
+      </h3>
+      <ul class="dossier-skill-chips">
+        {% for skill in category.skills %}
+        <li class="dossier-skill-chip">
+          <span class="dossier-skill-chip__name">{{ skill.name }}</span>
+          <span class="dossier-skill-chip__years">{{ skill.years }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>

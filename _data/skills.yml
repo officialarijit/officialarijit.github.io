@@ -1,0 +1,69 @@
+categories:
+  - name: Programming
+    icon: fa-code
+    skills:
+      - { name: Python, years: "5+" }
+      - { name: MATLAB, years: "6+" }
+      - { name: JavaScript, years: "3+" }
+      - { name: SQL, years: "4+" }
+
+  - name: Machine Learning & AI
+    icon: fa-brain
+    skills:
+      - { name: TensorFlow, years: "5+" }
+      - { name: PyTorch, years: "4+" }
+      - { name: Scikit-learn, years: "5+" }
+      - { name: Keras, years: "4+" }
+      - { name: LangChain, years: "0.5+" }
+
+  - name: Data Science
+    icon: fa-chart-bar
+    skills:
+      - { name: Pandas, years: "5+" }
+      - { name: NumPy, years: "5+" }
+      - { name: Matplotlib, years: "4+" }
+      - { name: Seaborn, years: "4+" }
+      - { name: Plotly, years: "3+" }
+
+  - name: Big Data & Cloud
+    icon: fa-cloud
+    skills:
+      - { name: Apache Spark, years: "0.3+" }
+      - { name: Hadoop, years: "1+" }
+      - { name: AWS, years: "0.5+" }
+      - { name: Azure, years: "0.5+" }
+      - { name: Kubernetes, years: "1+" }
+
+  - name: MLOps & DevOps
+    icon: fa-cogs
+    skills:
+      - { name: Docker, years: "3+" }
+      - { name: Git, years: "6+" }
+      - { name: MLflow, years: "2+" }
+      - { name: Kubeflow, years: "0.3+" }
+
+  - name: Databases
+    icon: fa-database
+    skills:
+      - { name: PostgreSQL, years: "2+" }
+      - { name: MongoDB, years: "2+" }
+      - { name: Redis, years: "0.3+" }
+      - { name: Kafka, years: "0.3+" }
+      - { name: Airflow, years: "0.3+" }
+
+  - name: Web & APIs
+    icon: fa-globe
+    skills:
+      - { name: FastAPI, years: "2+" }
+      - { name: Flask, years: "2+" }
+      - { name: Django, years: "0.2+" }
+      - { name: React, years: "0.2+" }
+      - { name: Streamlit, years: "3+" }
+
+  - name: Specialized AI/ML
+    icon: fa-robot
+    skills:
+      - { name: Computer Vision, years: "2+" }
+      - { name: Federated Learning, years: "4+" }
+      - { name: Explainable AI, years: "3+" }
+      - { name: Reinforcement Learning, years: "0.3+" }

@@ -1,0 +1,33 @@
+<section id="social-media" class="section dossier-profiles">
+  <div class="section-header">
+    <h2>Research Profiles</h2>
+    <p class="section-subtitle">Scholarly indexes, identifiers, and professional profiles</p>
+  </div>
+
+  {% for group in site.data.profiles.groups %}
+  <div class="dossier-profiles-group">
+    <h3 class="dossier-profiles-group__label">{{ group.name }}</h3>
+    <div class="dossier-profiles-grid">
+      {% for profile in group.profiles %}
+      <a
+        class="dossier-profile-card"
+        href="{{ profile.url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="dossier-profile-card__icon" aria-hidden="true">
+          <i class="{{ profile.icon }}"></i>
+        </span>
+        <span class="dossier-profile-card__body">
+          <strong>{{ profile.name }}</strong>
+          <span>{{ profile.description }}</span>
+        </span>
+        <span class="dossier-profile-card__arrow" aria-hidden="true">
+          <i class="fas fa-arrow-up-right-from-square"></i>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>

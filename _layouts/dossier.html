@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="dossier-root">
+<head>
+  {% include head.html %}
+</head>
+<body class="dossier-body{% if site.data.ads.show_placeholders %} dossier-ads-preview{% endif %}">
+  <div class="dossier-mobile-overlay" aria-hidden="true"></div>
+  <div class="dossier-shell">
+    {% include dossier-panel.html %}
+    <button
+      type="button"
+      class="dossier-sidebar-reveal"
+      aria-label="Show sidebar"
+      title="Show sidebar"
+      hidden
+    >
+      <i class="fas fa-angles-right" aria-hidden="true"></i>
+      <span>Sidebar</span>
+    </button>
+    <div class="dossier-stage{% if site.data.ads.enabled %} dossier-stage--with-rail{% endif %}">
+      <div class="dossier-main-wrap">
+        {% include dossier/topbar.html %}
+        <main class="dossier-main">
+          {{ content }}
+        </main>
+      </div>
+      {% if site.data.ads.enabled or site.data.ads.show_placeholders %}
+      <aside class="dossier-rail" aria-label="Advertisement">
+        {% include dossier/ad-unit.html slot="sidebar" format="rail" label="Advertisement" %}
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+  {% include scripts-dossier.html %}
+  {% include dossier/adsense.html %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+  <!-- Publications Section -->
+  <section id="publications" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Publications</h2>
+        <p class="section-subtitle">Research contributions and scientific work</p>
+      </div>
+
+      <div class="publication-filter">
+        <div class="filter-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="publication-search" placeholder="Search publications by title, authors, or journal..." />
+            <button id="clear-search" class="clear-btn" title="Clear search">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="filter-stats">
+            <span id="filter-results">Showing all publications</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="publications-list" id="publications-list">
+        <div class="loading-publications">
+          <div class="loading-spinner"></div>
+          <p>Loading publications...</p>
+        </div>
+        {% include static-publications.html %}
+      </div>
+    </div>
+  </section>

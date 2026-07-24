@@ -1,0 +1,22 @@
+---
+layout: dossier
+---
+<div class="dossier-blog-index">
+  <h1>Blog</h1>
+  <p class="dossier-intro">Notes on federated learning, explainable AI, and applied machine learning.</p>
+
+  {% include dossier/ad-unit.html slot="blog_list" format="banner" %}
+
+  <ul class="dossier-blog-list">
+    {% assign posts = site.posts | sort: 'date' | reverse %}
+    {% for post in posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <p class="meta">{{ post.date | date: '%d %B %Y' }}{% if post.read_time %} · {{ post.read_time }}{% endif %}{% if post.category %} · {{ post.category }}{% endif %}</p>
+        <h2>{{ post.title }}</h2>
+        {% if post.subtitle %}<p class="excerpt">{{ post.subtitle }}</p>{% else %}<p class="excerpt">{{ post.excerpt | default: post.content | strip_html | truncate: 160 }}</p>{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

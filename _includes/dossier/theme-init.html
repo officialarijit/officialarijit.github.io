@@ -1,0 +1,10 @@
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('darkMode');
+    var dark = saved === 'true' ||
+      (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) document.documentElement.classList.add('dark-mode');
+  } catch (e) {}
+})();
+</script>

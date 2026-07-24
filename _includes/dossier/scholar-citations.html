@@ -1,0 +1,54 @@
+{% assign scholar = site.data.scholar %}
+
+<aside class="dossier-scholar" aria-label="Google Scholar citation metrics">
+  <div class="dossier-scholar__header">
+    <h3 class="dossier-scholar__title">Google Scholar</h3>
+    <a
+      class="dossier-scholar__profile"
+      href="{{ scholar.scholar_url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View profile
+      <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="dossier-scholar__metrics">
+    <div class="dossier-scholar__metric">
+      <span class="dossier-scholar__metric-label">Citations</span>
+      <strong class="dossier-scholar__metric-value">{{ scholar.metrics.citations_all }}</strong>
+      <span class="dossier-scholar__metric-sub">since 2021: {{ scholar.metrics.citations_since_2021 }}</span>
+    </div>
+    <div class="dossier-scholar__metric">
+      <span class="dossier-scholar__metric-label">h-index</span>
+      <strong class="dossier-scholar__metric-value">{{ scholar.metrics.h_index_all }}</strong>
+      <span class="dossier-scholar__metric-sub">since 2021: {{ scholar.metrics.h_index_since_2021 }}</span>
+    </div>
+    <div class="dossier-scholar__metric">
+      <span class="dossier-scholar__metric-label">i10-index</span>
+      <strong class="dossier-scholar__metric-value">{{ scholar.metrics.i10_index_all }}</strong>
+      <span class="dossier-scholar__metric-sub">since 2021: {{ scholar.metrics.i10_index_since_2021 }}</span>
+    </div>
+  </div>
+
+  <div class="dossier-scholar__chart-wrap">
+    <p class="dossier-scholar__chart-label">Citations per year</p>
+    <div class="dossier-scholar__chart" role="img" aria-label="Bar chart of citations per year">
+      {% for item in scholar.by_year %}
+      <div class="dossier-scholar__bar">
+        <span class="dossier-scholar__bar-value">{{ item.count }}</span>
+        <div
+          class="dossier-scholar__bar-fill"
+          style="height: {{ item.count }}px"
+        ></div>
+        <span class="dossier-scholar__bar-year">{{ item.year }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if scholar.last_updated != "" %}
+  <p class="dossier-scholar__updated">Updated {{ scholar.last_updated }}</p>
+  {% endif %}
+</aside>

@@ -1,0 +1,59 @@
+projects:
+  - slug: dfl
+    title: "DFL: Docker-Based Federated Learning Framework"
+    image: /assets/images/dfl.png
+    image_alt: "DFL - Docker-Based Federated Learning Framework"
+    venue: "Computing (Springer, 2023)"
+    description: >
+      Designed and deployed a Docker-enabled federated learning framework (DFL) for
+      multi-modal data stream classification. Clients and global servers communicate
+      via lightweight MQTT protocol, enabling real-time emotion state classification
+      from distributed physiological data (EDA + RB) while preserving data privacy.
+    paper_url: https://link.springer.com/article/10.1007/s00607-023-01179-5
+    github_url: https://github.com/officialarijit/DFL
+    tech:
+      - Python
+      - TensorFlow
+      - Keras
+      - Docker
+      - MQTT
+      - Federated Learning
+
+  - slug: rpwe
+    title: "RPWE: Reward-Penalty Weighted Ensemble"
+    image: /assets/images/rpwe.png
+    image_alt: "RPWE - Reward Penalty Weighted Ensemble for Multimodal Data Stream Classification"
+    venue: "International Journal of Neural Systems (2022)"
+    description: >
+      Developed a novel Reward-Penalty Based Weighted Ensemble (RPWE) approach for
+      emotion state classification from multi-modal physiological data streams
+      (DEAP & AMIGOS datasets). Classifiers are dynamically rewarded or penalized
+      based on predictive performance, with an auto-adjusting beta factor.
+    paper_url: https://www.worldscientific.com/doi/10.1142/S0129065722500496
+    github_url: https://github.com/officialarijit/RPWE
+    tech:
+      - Python
+      - Scikit-Learn
+      - Ensemble Learning
+      - Jupyter Notebook
+      - Data Streaming
+
+  - slug: fed-remecs
+    title: "Fed-ReMECS: Federated Real-time Emotion Classification"
+    image: /assets/images/fedremecs.png
+    image_alt: "Fed-ReMECS - Federated Learning for Real-time Emotion State Classification"
+    venue: "Methods (Elsevier, 2022)"
+    description: >
+      Built a federated learning framework (Fed-ReMECS) for real-time emotion state
+      classification from multi-modal physiological data streams via wearable sensors.
+      Uses MQTT for IoT communication and builds a global classifier without accessing
+      users' local data, ensuring privacy. Evaluated on the DEAP dataset.
+    paper_url: https://www.sciencedirect.com/science/article/pii/S104620232200072X
+    github_url: https://github.com/officialarijit/Fed-ReMECS-mqtt
+    tech:
+      - Python
+      - TensorFlow
+      - Keras
+      - MQTT
+      - Federated Learning
+      - IoT

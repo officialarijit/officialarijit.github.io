@@ -1,0 +1,74 @@
+<section id="publications" class="section dossier-publications">
+  <div class="section-header">
+    <h2>Publications</h2>
+    <p class="section-subtitle">Research contributions and scientific work</p>
+  </div>
+
+  <div class="publication-filter">
+    <div class="filter-container">
+      <div class="search-box">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input
+          type="text"
+          id="publication-search"
+          placeholder="Search by title, authors, journal, or year…"
+          autocomplete="off"
+        />
+        <button id="clear-search" class="clear-btn" type="button" title="Clear search" hidden>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="filter-stats">
+        <span id="filter-results">
+          Showing {{ site.data.publications.publications | size }} publications
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dossier-pub-list" id="publications-list">
+    {% assign sorted_pubs = site.data.publications.publications | sort: 'year' | reverse %}
+    {% assign last_year = '' %}
+    {% for pub in sorted_pubs %}
+      {% if pub.year != last_year %}
+        <h3 class="dossier-pub-year" data-year="{{ pub.year }}">{{ pub.year }}</h3>
+        {% assign last_year = pub.year %}
+      {% endif %}
+      <article
+        class="dossier-pub-item"
+        data-year="{{ pub.year }}"
+        data-search="{{ pub.title | downcase }} {{ pub.authors | downcase }} {{ pub.journal | downcase }} {{ pub.year }}"
+      >
+        <h4 class="dossier-pub-item__title">
+          {% if pub.links.paper %}
+          <a href="{{ pub.links.paper }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+          {% else %}
+          {{ pub.title }}
+          {% endif %}
+        </h4>
+        <p class="dossier-pub-item__authors">{{ pub.authors }}</p>
+        <p class="dossier-pub-item__journal">{{ pub.journal }}</p>
+        <div class="dossier-pub-item__meta">
+          {% if pub.citations and pub.citations > 0 %}
+          <span class="dossier-pub-item__citations">
+            <i class="fas fa-quote-left" aria-hidden="true"></i>
+            {{ pub.citations }} citation{% if pub.citations != 1 %}s{% endif %}
+          </span>
+          {% endif %}
+          {% if pub.links.paper %}
+          <a href="{{ pub.links.paper }}" class="dossier-pub-item__link" target="_blank" rel="noopener noreferrer">
+            View paper <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+          {% if pub.links.code %}
+          <a href="{{ pub.links.code }}" class="dossier-pub-item__link" target="_blank" rel="noopener noreferrer">
+            Code <i class="fas fa-code" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <p class="dossier-pub-empty" id="publications-empty" hidden>No publications match your search.</p>
+</section>

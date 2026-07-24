@@ -1,0 +1,21 @@
+<noscript>
+{% assign pubs = site.data.publications.publications %}
+{% for pub in pubs %}
+<div class="publication-item static-pub">
+  <div class="pub-content">
+    <h3 class="pub-title">
+      {% if pub.links.paper %}
+      <a href="{{ pub.links.paper }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+      {% else %}
+      {{ pub.title }}
+      {% endif %}
+    </h3>
+    <p class="pub-authors">{{ pub.authors }}</p>
+    <p class="pub-journal">{{ pub.journal }} ({{ pub.year }})</p>
+    {% if pub.citations and pub.citations > 0 %}
+    <span class="pub-citations">{{ pub.citations }} citation{% if pub.citations != 1 %}s{% endif %}</span>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+</noscript>

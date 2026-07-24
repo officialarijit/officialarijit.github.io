@@ -1,0 +1,33 @@
+---
+layout: dossier
+---
+<div class="dossier-lead" id="top">
+  <p class="dossier-eyebrow">Biography</p>
+  <h2 class="dossier-page-title">Building trustworthy, privacy-preserving, and interpretable AI for real-world deployment.</h2>
+  <p class="dossier-intro">
+    Ph.D. in Artificial Intelligence (UPC-BarcelonaTech). I work on federated learning, explainable AI, and applied deep learning — from research to containerized production systems.
+  </p>
+</div>
+
+{% include dossier/ad-unit.html slot="home_banner" format="banner" %}
+
+{% include dossier/about.html %}
+{% include dossier/skills-grid.html %}
+{% include dossier/experience.html %}
+{% include dossier/projects.html %}
+{% include dossier/ad-unit.html slot="home_mid" format="banner" %}
+{% include sections/education.html %}
+{% include dossier/thesis.html %}
+{% include dossier/publications.html %}
+{% include sections/structured-data-home.html %}
+{% include dossier/blog-preview.html %}
+{% include dossier/research-profiles.html %}
+{% include dossier/contact.html %}
+
+{% include dossier/ad-unit.html slot="footer" format="banner" %}
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ site.data.site.name }}. All rights reserved.</p>
+  </div>
+</footer>

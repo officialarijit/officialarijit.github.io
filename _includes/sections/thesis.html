@@ -1,0 +1,151 @@
+  <!-- Thesis Section -->
+  <section id="thesis" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Thesis</h2>
+      </div>
+
+      <div id="thesis-card" class="thesis-card">
+        <div class="thesis-content">
+          <h3 class="thesis-title">Loading thesis...</h3>
+          <p class="thesis-meta"></p>
+          <div class="thesis-actions"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .thesis-card {
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      border-radius: 20px;
+      padding: 24px;
+      background: var(--bg-glass, rgba(255,255,255,0.85));
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .thesis-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+    .thesis-title {
+      margin: 0 0 8px 0;
+      font-size: 1.15rem;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .thesis-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .thesis-meta {
+      margin: 0 0 14px 0;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+    .thesis-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .thesis-actions a.btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .thesis-actions .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: #fff;
+    }
+  </style>
+
+  <style>
+    /* Thesis section themed background */
+    #thesis.section {
+      background: linear-gradient(180deg, var(--bg-primary, #f8fafc) 0%, var(--bg-light-blue, #eef2ff) 100%);
+      position: relative;
+    }
+    #thesis.section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(45deg,
+        rgba(99,102,241,0.03) 0px,
+        rgba(99,102,241,0.03) 12px,
+        rgba(139,92,246,0.02) 12px,
+        rgba(139,92,246,0.02) 24px);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.04));
+    }
+  </style>
+
+  <script>
+    (function() {
+      const thesisData = {
+        type: 'Ph.D. Thesis',
+        title: 'Multimodal data stream classification and prediction of e-learner\u2019s emotional states',
+        directors: ['Prof. (Dr.) Fatos Xhafa', 'Dra. Laia Subirats Mate'],
+        defenseDate: '2024',
+        documentType: 'Doctoral Thesis',
+        collection: 'Universitat Politècnica de Catalunya',
+        links: [
+          { href: 'https://www.tdx.cat/handle/10803/696729', label: 'Portal de la Recerca de Catalunya' },
+          { href: 'https://dialnet.unirioja.es/servlet/tesis?codigo=384828', label: 'Dialnet' },
+          { href: 'https://www.scilit.com/publications/3cf429f1ea0bc7f20a2f9d8567ead204', label: 'Scilit' }
+        ]
+      };
+
+      const card = document.getElementById('thesis-card');
+      if (!card) return;
+      const titleEl = card.querySelector('.thesis-title');
+      const metaEl = card.querySelector('.thesis-meta');
+      const actionsEl = card.querySelector('.thesis-actions');
+
+      if (titleEl) titleEl.innerHTML = (thesisData.type ? `<span class="thesis-tag">${thesisData.type}</span>` : '') + thesisData.title;
+
+      // Build multi-line meta details
+      const lines = [];
+      if (thesisData.directors && thesisData.directors.length) {
+        lines.push('Director: ' + thesisData.directors.join(' · '));
+      }
+      if (thesisData.defenseDate) {
+        lines.push('Defense Date: ' + thesisData.defenseDate);
+      }
+      if (thesisData.documentType) {
+        lines.push('Document type: ' + thesisData.documentType);
+      }
+      if (thesisData.collection) {
+        lines.push('Appears in Collections: ' + thesisData.collection);
+      }
+      if (metaEl) metaEl.innerHTML = lines.map(l => `<div>${l}</div>`).join('');
+
+      // Action links
+      actionsEl.innerHTML = '';
+      thesisData.links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.className = 'btn btn-primary';
+        a.textContent = link.label;
+        actionsEl.appendChild(a);
+      });
+    })();
+  </script>
+

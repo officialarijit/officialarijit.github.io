@@ -1,0 +1,38 @@
+menu:
+  - label: Home
+    section: top
+  - label: Biography
+    section: about
+  - label: Expertise
+    section: skills
+  - label: Experience
+    section: experience
+  - label: Projects
+    section: projects
+  - label: Education
+    section: education
+  - label: Thesis
+    section: thesis
+  - label: Publications
+    section: publications
+  - label: Blog
+    href: /blog.html
+    page: blog
+  - label: Profiles
+    section: social-media
+  - label: Contact
+    section: contact
+
+social:
+  - href: https://scholar.google.com/citations?user=4re6DoEAAAAJ
+    icon: fas fa-graduation-cap
+    label: Google Scholar
+  - href: https://github.com/officialarijit
+    icon: fab fa-github
+    label: GitHub
+  - href: https://www.linkedin.com/in/arin2/
+    icon: fab fa-linkedin
+    label: LinkedIn
+  - href: https://orcid.org/0000-0003-4238-5183
+    icon: fab fa-orcid
+    label: ORCID

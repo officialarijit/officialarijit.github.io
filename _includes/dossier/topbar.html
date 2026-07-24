@@ -1,0 +1,47 @@
+<header class="dossier-topbar" aria-label="Page context">
+  <button
+    type="button"
+    class="dossier-topbar__menu"
+    aria-label="Open menu"
+    aria-controls="dossier-panel-nav"
+    aria-expanded="false"
+  >
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <nav class="dossier-breadcrumb" aria-label="Breadcrumb">
+    <ol class="dossier-breadcrumb__list">
+      <li class="dossier-breadcrumb__item">
+        <a href="{{ '/' | relative_url }}">Home</a>
+      </li>
+      {% if page.layout == 'post' %}
+      <li class="dossier-breadcrumb__item">
+        <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+      </li>
+      <li class="dossier-breadcrumb__item dossier-breadcrumb__item--current" aria-current="page">
+        <span>{{ page.title }}</span>
+      </li>
+      {% elsif page.layout == 'blog' %}
+      <li class="dossier-breadcrumb__item dossier-breadcrumb__item--current" aria-current="page">
+        <span>Blog</span>
+      </li>
+      {% else %}
+      <li class="dossier-breadcrumb__item dossier-breadcrumb__item--current" aria-current="page">
+        <span id="dossier-breadcrumb-current">Overview</span>
+      </li>
+      {% endif %}
+    </ol>
+  </nav>
+
+  <div class="dossier-topbar__actions">
+    <button
+      type="button"
+      class="dossier-theme-toggle dossier-topbar__theme"
+      aria-label="Switch to dark mode"
+      title="Dark mode"
+    >
+      <i class="fas fa-moon" aria-hidden="true"></i>
+      <span class="dossier-theme-toggle__label dossier-sr-only">Dark mode</span>
+    </button>
+  </div>
+</header>

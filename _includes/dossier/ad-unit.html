@@ -1,0 +1,25 @@
+{% assign ads = site.data.ads %}
+{% assign slot_key = include.slot %}
+{% assign slot_id = ads.slots[slot_key] %}
+{% assign format = include.format | default: 'responsive' %}
+{% assign label = include.label %}
+
+{% if ads.enabled and ads.client != "" and slot_id != "" %}
+<div class="dossier-ad dossier-ad--{{ format }}" data-ad-placement="{{ slot_key }}">
+  {% if label != "" %}
+  <p class="dossier-ad-label">{{ label }}</p>
+  {% endif %}
+  <ins
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="{{ ads.client }}"
+    data-ad-slot="{{ slot_id }}"
+    data-ad-format="{% if format == 'banner' %}horizontal{% else %}auto{% endif %}"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+{% elsif ads.show_placeholders %}
+<div class="dossier-ad dossier-ad--preview dossier-ad--{{ format }}" data-ad-placement="{{ slot_key }}" aria-hidden="true">
+  <span class="dossier-ad-preview">{{ slot_key | replace: '_', ' ' }}</span>
+</div>
+{% endif %}

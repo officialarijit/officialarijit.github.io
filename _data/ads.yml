@@ -1,0 +1,18 @@
+# Google AdSense (optional)
+#
+# Public site: keep enabled: false until approved. No visible placeholders are shown.
+# Local preview of slot positions: set show_placeholders: true (dev only).
+#
+enabled: false
+show_placeholders: false
+client: ""
+
+# One AdSense ad unit ID per placement (from AdSense → Ads → By ad unit).
+slots:
+  sidebar: ""       # Right rail — wide screens (300×600 / responsive)
+  home_banner: ""   # Below homepage intro
+  home_mid: ""      # Mid-homepage (after projects)
+  blog_list: ""     # Top of /blog.html
+  post_top: ""      # Below post title on article pages
+  post_bottom: ""   # End of article, before back link
+  footer: ""        # Above site footer on homepage

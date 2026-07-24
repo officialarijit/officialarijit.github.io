@@ -1,0 +1,16 @@
+<noscript>
+{% assign posts = site.posts | sort: 'date' | reverse %}
+{% for post in posts limit:3 %}
+<div class="blog-preview-card static-blog">
+  {% if post.image %}
+  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" width="400" height="250">
+  {% endif %}
+  <div class="blog-preview-content">
+    <span class="post-category">{{ post.category }}</span>
+    <h3><a href="{{ '/blog.html' | relative_url }}#{{ post.slug | default: post.id }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+    <span class="post-date">{{ post.date | date: '%Y-%m-%d' }}</span>
+  </div>
+</div>
+{% endfor %}
+</noscript>

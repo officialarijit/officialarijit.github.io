@@ -1,0 +1,48 @@
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>{{ site.data.site.name }}</h3>
+          <p>AI/ML Engineer & Researcher passionate about creating innovative solutions.</p>
+          <div class="social-links">
+            <a href="https://github.com/officialarijit" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/arin2/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com/citations?user={{ site.data.site.scholar_id }}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://www.researchgate.net/profile/Arijit-Nandi-2?ev=hdr_xprf" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+            <a href="https://orcid.org/0000-0003-4238-5183" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+            <a href="mailto:{{ site.data.site.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="{{ '/index.html' | relative_url }}#about">About Me</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#skills">Technical Skills</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#experience">Experience</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#projects">Featured Projects</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#education">Education</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#publications">Research Publications</a></li>
+            <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Research Areas</h3>
+          <ul>
+            <li><a href="{{ '/index.html' | relative_url }}#publications">Machine Learning</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#publications">Federated Learning</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#publications">Explainable AI</a></li>
+            <li><a href="{{ '/index.html' | relative_url }}#publications">Large Language Models</a></li>
+            <li><a href="{{ '/blog.html' | relative_url }}">AI Tutorials</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ site.data.site.name }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollToTop" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>

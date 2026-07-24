@@ -1,0 +1,23 @@
+---
+layout: dossier
+---
+<article class="dossier-post">
+  {% if page.category %}<p class="dossier-post__category">{{ page.category }}</p>{% endif %}
+  <h1>{{ page.title }}</h1>
+  {% if page.subtitle %}<p class="dossier-post__subtitle">{{ page.subtitle }}</p>{% endif %}
+  <div class="dossier-post__meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d %B %Y' }}</time>
+    {% if page.read_time %} · {{ page.read_time }}{% endif %}
+    {% if page.author %} · {{ page.author }}{% endif %}
+  </div>
+
+  {% include dossier/ad-unit.html slot="post_top" format="inline" %}
+
+  <div class="dossier-post__content math-display">
+    {{ content }}
+  </div>
+
+  {% include dossier/ad-unit.html slot="post_bottom" format="inline" %}
+
+  <a class="dossier-post__back" href="{{ '/blog.html' | relative_url }}">&larr; All writing</a>
+</article>

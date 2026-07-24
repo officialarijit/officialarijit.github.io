@@ -108,6 +108,11 @@ celerybeat.pid
 
 # mkdocs documentation
 /site
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
 
 # mypy
 .mypy_cache/
@@ -122,9 +127,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-deploy.sh
-README.md
 docs/
 
 .venv/
 scripts/
+*.mmd

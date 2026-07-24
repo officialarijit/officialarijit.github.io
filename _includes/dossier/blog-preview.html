@@ -1,0 +1,19 @@
+<section id="blog-preview" class="section">
+  <div class="section-header">
+    <h2>Blog</h2>
+    <p class="section-subtitle">Recent essays on machine learning and applied AI</p>
+  </div>
+  <div class="dossier-blog-grid">
+    {% assign posts = site.posts | sort: 'date' | reverse %}
+    {% for post in posts limit:3 %}
+    <a class="dossier-blog-card" href="{{ post.url | relative_url }}">
+      <p class="dossier-blog-card__meta">{{ post.date | date: '%d %b %Y' }}{% if post.category %} · {{ post.category }}{% endif %}</p>
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.excerpt | default: post.content | strip_html | truncate: 140 }}</p>
+    </a>
+    {% endfor %}
+  </div>
+  <p style="margin-top:1.25rem">
+    <a href="{{ '/blog.html' | relative_url }}" class="btn btn-secondary">All posts</a>
+  </p>
+</section>

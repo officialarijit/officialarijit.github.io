@@ -1,0 +1,9 @@
+source "https://rubygems.org"
+
+# Compatible with macOS system Ruby 2.6+ and Homebrew Ruby 3.x
+gem "jekyll", "~> 3.9.3"
+gem "jekyll-feed", "~> 0.15"
+gem "jekyll-seo-tag", "~> 2.8"
+gem "jekyll-sitemap", "~> 1.4"
+gem "kramdown-parser-gfm", "~> 1.1"
+gem "webrick", "~> 1.8"

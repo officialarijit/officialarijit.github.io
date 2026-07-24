@@ -1,0 +1,13 @@
+{% assign ads = site.data.ads %}
+{% if ads.enabled and ads.client != "" %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ ads.client }}" crossorigin="anonymous"></script>
+<script>
+  (function () {
+    var units = document.querySelectorAll('ins.adsbygoogle');
+    if (!units.length) return;
+    units.forEach(function () {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  })();
+</script>
+{% endif %}

@@ -1,0 +1,85 @@
+<aside class="dossier-panel" aria-label="Profile and navigation">
+  <div class="dossier-panel__header">
+    <button
+      type="button"
+      class="dossier-panel-collapse"
+      aria-label="Hide sidebar"
+      title="Hide sidebar"
+    >
+      <i class="fas fa-angles-left" aria-hidden="true"></i>
+      <span class="dossier-panel-collapse__label">Hide sidebar</span>
+    </button>
+
+    <button
+      class="dossier-panel__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="dossier-panel-nav"
+    >
+      <span class="dossier-panel__toggle-label">Menu</span>
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="dossier-panel__brand">
+    <a class="dossier-panel__photo-link" href="{{ '/' | relative_url }}#top" aria-label="{{ site.data.site.name }} — home">
+      <img
+        class="dossier-panel__photo"
+        src="{{ '/assets/images/photo.jpg' | relative_url }}"
+        alt="{{ site.data.site.name }}"
+        width="280"
+        height="280"
+        loading="eager"
+      >
+    </a>
+    <div class="dossier-panel__identity">
+      <h1 class="dossier-panel__name">{{ site.data.site.name }}</h1>
+      <p class="dossier-panel__title">{{ site.data.site.title }}</p>
+      <p class="dossier-panel__location">
+        <i class="fas fa-location-dot" aria-hidden="true"></i>
+        {{ site.data.site.location }}, Spain
+      </p>
+    </div>
+  </div>
+
+  <div class="dossier-panel__nav-wrap" id="dossier-panel-nav">
+    <nav class="dossier-panel__menu" aria-label="Primary navigation">
+      <ul class="dossier-panel__nav">
+        {% for item in site.data.navigation.menu %}
+        <li{% if item.page == 'blog' %} class="dossier-panel__nav-item--page"{% endif %}>
+          {% if item.section %}
+          <a
+            href="{{ '/' | relative_url }}#{{ item.section }}"
+            data-section="{{ item.section }}"
+          >{{ item.label }}</a>
+          {% else %}
+          <a
+            href="{{ item.href | relative_url }}"
+            {% if page.url contains 'blog' and item.page == 'blog' %}class="is-active"{% endif %}
+          >{{ item.label }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="dossier-panel__footer">
+      <div class="dossier-panel__socials">
+        {% for link in site.data.navigation.social %}
+        <a
+          href="{{ link.href }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{ link.label }}"
+        >
+          <i class="{{ link.icon }}" aria-hidden="true"></i>
+        </a>
+        {% endfor %}
+      </div>
+      <a class="dossier-panel__email" href="mailto:{{ site.data.site.email }}">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <span>{{ site.data.site.email }}</span>
+      </a>
+    </div>
+  </div>
+</aside>

@@ -50,7 +50,7 @@ function initScrollEffects() {
   }, observerOptions);
 
   // Observe elements for animation
-  const animateElements = document.querySelectorAll('.skill-category, .project-card, .timeline-item, .education-card, .publication-item');
+  const animateElements = document.querySelectorAll('.skill-category, .project-card, .timeline-item, .education-card');
   animateElements.forEach(el => {
     observer.observe(el);
   });
@@ -197,8 +197,7 @@ function initAnimations() {
     .skill-category,
     .project-card,
     .timeline-item,
-    .education-card,
-    .publication-item {
+    .education-card {
       opacity: 0;
       transform: translateY(30px);
     }
@@ -206,8 +205,7 @@ function initAnimations() {
     .skill-category.animate-in,
     .project-card.animate-in,
     .timeline-item.animate-in,
-    .education-card.animate-in,
-    .publication-item.animate-in {
+    .education-card.animate-in {
       opacity: 1;
       transform: translateY(0);
     }
@@ -370,26 +368,30 @@ loadingStyles.textContent = `
 `;
 document.head.appendChild(loadingStyles);
 
-  // Fetch Google Scholar citation metrics from a local JSON file (scholar.json)
-  fetch('scholar.json')
-    .then(response => response.json())
-    .then(data => {
-      const metricsDiv = document.getElementById('scholar-metrics');
-      metricsDiv.innerHTML = `
+  // Fetch Google Scholar citation metrics when a legacy widget is present
+  const metricsDiv = document.getElementById('scholar-metrics');
+  if (metricsDiv) {
+    fetch('scholar.json')
+      .then(response => {
+        if (!response.ok) throw new Error('scholar.json not found');
+        return response.json();
+      })
+      .then(data => {
+        metricsDiv.innerHTML = `
         <p><strong>Total Citations:</strong> ${data.total_citations}</p>
         <p><strong>h-index:</strong> ${data.h_index}</p>
         <p><strong>i10-index:</strong> ${data.i10_index}</p>
       `;
-    })
-    .catch(error => {
-      console.error('Error loading Google Scholar metrics:', error);
-      const metricsDiv = document.getElementById('scholar-metrics');
-      metricsDiv.innerHTML = `<p>Unable to load citation metrics.</p>`;
-    });
+      })
+      .catch(error => {
+        console.error('Error loading Google Scholar metrics:', error);
+        metricsDiv.innerHTML = '<p>Unable to load citation metrics.</p>';
+      });
+  }
 
 // Add loading styles for publications
-const loadingStyles = document.createElement('style');
-loadingStyles.textContent = `
+const publicationLoadingStyles = document.createElement('style');
+publicationLoadingStyles.textContent = `
   .loading-publications {
     text-align: center;
     padding: 3rem 1rem;
@@ -443,7 +445,7 @@ loadingStyles.textContent = `
     text-decoration: underline;
   }
 `;
-document.head.appendChild(loadingStyles);
+document.head.appendChild(publicationLoadingStyles);
 
 // Fetch Google Scholar Publications
 async function fetchGoogleScholarPublications() {
@@ -781,10 +783,12 @@ function updateMetricsSection(metrics) {
   }, 100);
 }
 
-// ─── Dark Mode ────────────────────────────────────────────────────────────────
-// Single source of truth. Uses event delegation so it works regardless of when
-// the navbar HTML is injected into the DOM.
+// ─── Dark Mode Fallback ───────────────────────────────────────────────────────
+// The sidebar/navbar owns the actual theme toggle. This fallback only applies
+// the saved preference early on pages where the navbar is still being injected.
 (function () {
+  if (document.body && document.body.classList.contains('dossier-body')) return;
+
   function applyDarkMode(enabled) {
     document.body.classList.toggle('dark-mode', enabled);
     // Remove the early-apply pending class from <html> (if present)
@@ -810,36 +814,8 @@ function updateMetricsSection(metrics) {
   // Apply preference as early as possible
   applyDarkMode(getPreference());
 
-  // Event delegation — catches the button however late it is injected
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('.dark-mode-toggle');
-    if (!btn) return;
-    e.preventDefault();
-    e.stopPropagation();
-    applyDarkMode(!document.body.classList.contains('dark-mode'));
-  });
-
-  // Re-sync icon whenever the navbar is injected (MutationObserver)
-  var navObserver = new MutationObserver(function () {
-    var icon = document.querySelector('.dark-mode-toggle i');
-    if (!icon) return;
-    var isDark = document.body.classList.contains('dark-mode');
-    icon.classList.toggle('fa-sun', isDark);
-    icon.classList.toggle('fa-moon', !isDark);
-  });
-  navObserver.observe(document.body, { childList: true, subtree: false });
-
-  // System preference change (only when user hasn't manually chosen)
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-      try { if (localStorage.getItem('darkMode') !== null) return; } catch (err) {}
-      applyDarkMode(e.matches);
-    });
-  }
-
-  // Expose for legacy callers in navbar.js so they don't throw errors
-  window.initDarkMode = function () {};
-  window.setDarkMode = applyDarkMode;
+  if (!window.initDarkMode) window.initDarkMode = function () {};
+  if (!window.setDarkMode) window.setDarkMode = applyDarkMode;
 }());
 
 // Copy email to clipboard function
