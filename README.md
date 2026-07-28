@@ -33,7 +33,49 @@ Output: `_site/`
 | `_includes/dossier/` | Homepage sections |
 | `css/theme-dossier.css` | Site theme |
 | `data/publications.json` | Publications (linked from `_data/publications.json`) |
-| `citation.txt` | Google Scholar export (update `_data/scholar.yml` manually or via script) |
+| `citation.txt` | Google Scholar export (fallback input for `scripts/update_scholar.py`) |
+| `publications.txt` | Optional Scholar publications HTML export (fallback for `scripts/update_publications.py`) |
+| `scripts/` | Scholar update scripts (see below) |
+
+## Google Scholar updates
+
+Citation metrics and publications can be refreshed automatically or manually.
+
+### Automatic (GitHub Actions)
+
+`.github/workflows/update-scholar.yml` runs weekly (Mondays 06:00 UTC) and on manual dispatch. It:
+
+1. Tries to fetch live data from Google Scholar via `scripts/fetch_scholar.py`
+2. Falls back to parsing `citation.txt` / `publications.txt` if the fetch fails
+3. Updates `_data/scholar.yml` and `data/publications.json`
+4. Commits changes when data changes
+
+Trigger manually: **Actions → Update Google Scholar data → Run workflow**.
+
+### Local update
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python scripts/update_all.py
+```
+
+Fallback only (no live fetch):
+
+```bash
+python scripts/update_all.py --skip-fetch
+```
+
+Individual scripts:
+
+```bash
+python scripts/fetch_scholar.py              # live fetch → scholar.yml + publications.json
+python scripts/update_scholar.py             # citation.txt → _data/scholar.yml
+python scripts/update_publications.py        # publications.txt → data/publications.json
+```
+
+**Source of truth:** aggregate metrics in the About sidebar come from `_data/scholar.yml` (Google Scholar's official totals). Per-paper citation counts come from `data/publications.json`.
 
 ## Deploy
 

@@ -130,5 +130,4 @@ db.sqlite3-journal
 docs/
 
 .venv/
-scripts/
 *.mmd

@@ -2,7 +2,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% assign page_title = page.title | default: site.title %}
+{% if page.layout == 'home' %}
+{% assign scholar_citations = site.data.scholar.metrics.citations_all %}
+{% assign publication_count = site.data.publications.publications | size %}
+{% capture page_description %}Arijit Nandi - Advanced Machine Learning Researcher with Ph.D. from UPC-BarcelonaTech. Expert in Federated Learning, Explainable AI, and Large Language Models. {{ publication_count }}+ publications, {{ scholar_citations }}+ citations. Specializing in trustworthy AI solutions.{% endcapture %}
+{% else %}
 {% assign page_description = page.description | default: site.description %}
+{% endif %}
 {% assign canonical_url = page.canonical | default: site.url | append: site.baseurl | append: page.url %}
 {% assign og_image = site.url | append: site.baseurl | append: '/assets/images/photo.jpg' %}
 
