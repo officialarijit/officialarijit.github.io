@@ -309,7 +309,7 @@ body.dossier-body {
   margin-top: 0.75rem;
   padding-top: 0.85rem;
   border-top: 1px solid var(--dossier-border);
-  background: var(--dossier-bg-panel);
+  /* background: var(--dossier-bg-panel); */
 }
 
 .dossier-panel-collapse__label {
@@ -687,7 +687,7 @@ body.dossier-mobile-nav-open .dossier-mobile-overlay {
 
 .dossier-main .education-content {
   display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
+  grid-template-columns: 10.5rem minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
 }
@@ -711,8 +711,8 @@ body.dossier-mobile-nav-open .dossier-mobile-overlay {
 
 .dossier-main .education-logo {
   display: block;
-  width: 3rem;
-  height: 3rem;
+  width: 6rem;
+  height: 6rem;
   object-fit: contain;
 }
 
